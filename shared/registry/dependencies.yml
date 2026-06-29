@@ -1,0 +1,401 @@
+dependencies:
+- upstream: dim_entity
+  downstream: dim_security
+  keys:
+  - entity_id
+  relationship: 1-to-many
+  preserve: issuer/entity hierarchy
+- upstream: dim_security
+  downstream: dim_identifier
+  keys:
+  - security_id
+  - effective_start
+  - effective_end
+  relationship: 1-to-many over time
+  preserve: identifier history
+- upstream: dim_security
+  downstream: dim_listing
+  keys:
+  - security_id
+  relationship: 1-to-many over time
+  preserve: listing venue and active interval
+- upstream: dim_security
+  downstream: fact_equity_price_daily
+  keys:
+  - security_id
+  - date
+  relationship: 1-to-many
+  preserve: price-volume-liquidity path
+- upstream: fact_equity_price_daily
+  downstream: fact_bar_1m
+  keys:
+  - security_id
+  - date
+  relationship: 1-to-many
+  preserve: intraday aggregates reconcile to daily
+- upstream: dim_security
+  downstream: dim_option_contract
+  keys:
+  - security_id
+  relationship: 1-to-many
+  preserve: underlying to contract linkage
+- upstream: dim_option_contract
+  downstream: fact_option_eod
+  keys:
+  - option_contract_id
+  - date
+  relationship: 1-to-many
+  preserve: contract panel consistency
+- upstream: fact_equity_price_daily
+  downstream: fact_option_surface_eod
+  keys:
+  - security_id
+  - date
+  relationship: 1-to-many
+  preserve: underlying price to surface state
+- upstream: fact_option_surface_eod
+  downstream: agg_option_gamma_daily
+  keys:
+  - security_id
+  - date
+  relationship: many-to-1
+  preserve: surface/greeks map into aggregate gamma
+- upstream: fact_bar_1m
+  downstream: agg_realized_vol_daily
+  keys:
+  - security_id
+  - date
+  relationship: many-to-1
+  preserve: realized volatility computed from minute bars
+- upstream: fact_rate_curve_node
+  downstream: agg_curve_daily
+  keys:
+  - curve_id
+  - date
+  relationship: many-to-1
+  preserve: curve summaries match node data
+- upstream: fact_macro_observation
+  downstream: fact_macro_observation_vintage
+  keys:
+  - series_id
+  - observation_date
+  relationship: 1-to-many vintages
+  preserve: point-in-time availability
+- upstream: dim_future_contract
+  downstream: fact_futures_price_daily
+  keys:
+  - future_contract_id
+  - date
+  relationship: 1-to-many
+  preserve: contract roll and tenor logic
+- upstream: fact_futures_price_daily
+  downstream: fact_futures_bar_1m
+  keys:
+  - future_contract_id
+  - date
+  relationship: 1-to-many
+  preserve: intraday consistent with daily futures
+- upstream: dim_bond_issue
+  downstream: fact_bond_trade
+  keys:
+  - bond_issue_id
+  relationship: 1-to-many
+  preserve: issue metadata joins to trades
+- upstream: dim_bond_issue
+  downstream: fact_bond_quote
+  keys:
+  - bond_issue_id
+  relationship: 1-to-many
+  preserve: issue metadata joins to quotes
+- upstream: fact_clo_collateral_position
+  downstream: agg_clo_cohort_default
+  keys:
+  - deal_id
+  relationship: many-to-1 derived rollup
+  preserve: repeated cohort default-rate dispersion stays auditable for rho calibration
+- upstream: fact_clo_collateral_position
+  downstream: fact_clo_default_event
+  keys:
+  - deal_id
+  - loan_id
+  relationship: 1-to-many over time
+  preserve: defaults remain attached to the same collateral identity
+- upstream: fact_clo_default_event
+  downstream: fact_clo_recovery_event
+  keys:
+  - deal_id
+  - loan_id
+  relationship: 1-to-many over time
+  preserve: recovery timing and amount remain tied to the triggering defaulted loan
+- upstream: dim_clo_tranche
+  downstream: fact_clo_tranche_cashflow
+  keys:
+  - deal_id
+  - tranche
+  relationship: 1-to-many
+  preserve: tranche cash flows stay aligned to the same attachment, detachment, and label
+- upstream: dim_clo_tranche
+  downstream: fact_clo_manager_report
+  keys:
+  - deal_id
+  - tranche
+  relationship: 1-to-many over time
+  preserve: OC and IC diagnostics remain tranche-specific and auditable
+- upstream: dim_entity
+  downstream: fact_fundamental_period
+  keys:
+  - entity_id
+  relationship: 1-to-many
+  preserve: firm-period panel
+- upstream: dim_entity
+  downstream: fact_esg_metric
+  keys:
+  - entity_id
+  relationship: 1-to-many
+  preserve: entity-level sparse ESG panel
+- upstream: dim_fund
+  downstream: fact_fund_holding
+  keys:
+  - fund_id
+  relationship: 1-to-many
+  preserve: fund holdings history
+- upstream: dim_security
+  downstream: fact_fund_holding
+  keys:
+  - security_id
+  relationship: 1-to-many
+  preserve: holdings link to security master
+- upstream: dim_private_company
+  downstream: fact_private_round
+  keys:
+  - private_company_id
+  relationship: 1-to-many
+  preserve: funding histories
+- upstream: fact_private_round
+  downstream: fact_private_investor_participation
+  keys:
+  - round_id
+  relationship: 1-to-many
+  preserve: round-investor membership
+- upstream: dim_private_company
+  downstream: fact_private_exit
+  keys:
+  - private_company_id
+  relationship: 1-to-many
+  preserve: outcomes and censoring
+- upstream: dim_patent
+  downstream: fact_patent_assignee
+  keys:
+  - patent_id
+  relationship: 1-to-many
+  preserve: assignee linkage
+- upstream: dim_patent
+  downstream: fact_patent_citation
+  keys:
+  - patent_id
+  relationship: 1-to-many graph
+  preserve: citation ordering and graph structure
+- upstream: event_market_regime
+  downstream: fact_futures_price_daily
+  keys:
+  - date_or_interval
+  relationship: overlay
+  preserve: scenario shocks affect futures
+- upstream: event_market_regime
+  downstream: fact_option_surface_eod
+  keys:
+  - date_or_interval
+  relationship: overlay
+  preserve: scenario shocks affect vol surface
+- upstream: dim_security
+  downstream: panel_ohlc_bid_ask_daily
+  keys:
+  - security_id
+  relationship: 1-to-many
+  preserve: public-safe security identity remains stable across daily OHLC inputs
+- upstream: fact_equity_price_daily
+  downstream: panel_ohlc_bid_ask_daily
+  keys:
+  - security_id
+  - date
+  relationship: 1-to-1 after notebook-facing mapping
+  preserve: daily OHLC geometry and volume stay consistent with the equity path
+- upstream: dim_security
+  downstream: fact_parent_order_request
+  keys:
+  - security_id
+  relationship: 1-to-many
+  preserve: parent-order scenarios remain tied to public-safe securities
+- upstream: dim_security
+  downstream: panel_gamma_paper_backtest_daily
+  keys:
+  - security_id
+  relationship: 1-to-many
+  preserve: public-safe security identity remains stable across stock-day backtest rows
+- upstream: fact_equity_price_daily
+  downstream: panel_gamma_paper_backtest_daily
+  keys:
+  - security_id
+  - date
+  relationship: 1-to-1 after notebook-facing mapping
+  preserve: stock-day snapshot windows stay consistent with the daily equity path
+- upstream: fact_bar_1m
+  downstream: panel_gamma_paper_backtest_daily
+  keys:
+  - security_id
+  - date
+  relationship: many minute rows to 1 stock-day row
+  preserve: snapshot prices and intraday windows reconcile to the minute-bar path
+- upstream: dim_security
+  downstream: fact_option_gamma_pair_daily
+  keys:
+  - security_id
+  relationship: 1-to-many
+  preserve: pair-level option gamma rows remain tied to public-safe underlyings
+- upstream: dim_option_contract
+  downstream: fact_option_gamma_pair_daily
+  keys:
+  - option_contract_id
+  relationship: 1-to-many
+  preserve: pair rows remain anchored to contract metadata and expiry structure
+- upstream: fact_option_eod
+  downstream: fact_option_gamma_pair_daily
+  keys:
+  - option_contract_id
+  - date
+  relationship: many-to-1 after pair aggregation
+  preserve: pair-level gamma inputs remain consistent with same-day option state
+- upstream: panel_gamma_paper_backtest_daily
+  downstream: fact_option_gamma_pair_daily
+  keys:
+  - security_id
+  - date
+  relationship: 1-to-many
+  preserve: option-pair conditioning joins to the same stock-day baseline panel
+- upstream: dim_security
+  downstream: panel_equity_cluster_monthly
+  keys:
+  - security_id
+  relationship: 1-to-many over time
+  preserve: public-safe security identity across monthly observations
+- upstream: fact_equity_price_daily
+  downstream: panel_equity_cluster_monthly
+  keys:
+  - security_id
+  - month_end
+  relationship: many daily rows to 1 monthly row
+  preserve: monthly market controls reconcile to the daily equity path
+- upstream: agg_liquidity_daily
+  downstream: panel_equity_cluster_monthly
+  keys:
+  - security_id
+  - month_end
+  relationship: many daily rows to 1 monthly row
+  preserve: turnover and activity inputs align with the monthly panel
+- upstream: fact_fundamental_period
+  downstream: panel_equity_cluster_monthly
+  keys:
+  - entity_id
+  - month_end
+  relationship: many filings to 1 as-of monthly row
+  preserve: point-in-time fundamentals activate correctly by month_end
+- upstream: dim_security
+  downstream: panel_equity_factor_research_monthly
+  keys:
+  - security_id
+  relationship: 1-to-many over time
+  preserve: public-safe security identity across monthly factor-research observations
+- upstream: fact_equity_price_daily
+  downstream: panel_equity_factor_research_monthly
+  keys:
+  - security_id
+  - month_end
+  relationship: many daily rows to 1 monthly row
+  preserve: monthly return, beta, and volatility controls reconcile to the daily equity path
+- upstream: agg_liquidity_daily
+  downstream: panel_equity_factor_research_monthly
+  keys:
+  - security_id
+  - month_end
+  relationship: many daily rows to 1 monthly row
+  preserve: turnover and illiquidity inputs align with the monthly research panel
+- upstream: agg_realized_vol_daily
+  downstream: panel_equity_factor_research_monthly
+  keys:
+  - security_id
+  - month_end
+  relationship: many daily rows to 1 monthly row
+  preserve: realized-volatility summaries remain consistent with the minute-bar path
+- upstream: agg_intraday_liquidity_daily
+  downstream: panel_equity_factor_research_monthly
+  keys:
+  - security_id
+  - month_end
+  relationship: many daily rows to 1 monthly row
+  preserve: intraday liquidity and cost proxies remain consistent with the minute-bar path
+- upstream: fact_fundamental_period
+  downstream: panel_equity_factor_research_monthly
+  keys:
+  - entity_id
+  - month_end
+  relationship: many filings to 1 as-of monthly row
+  preserve: point-in-time fundamentals activate conservatively by month_end
+- upstream: dim_prediction_market
+  downstream: dim_prediction_token
+  keys:
+  - market_id
+  - condition_id
+  relationship: 1-to-many
+  preserve: market/question/condition and YES/NO token pairing
+- upstream: dim_prediction_token
+  downstream: fact_prediction_position_snapshot
+  keys:
+  - token_id
+  - condition_id
+  - market_id
+  relationship: 1-to-many snapshots
+  preserve: borrower positions join to the same token/market snapshot
+- upstream: dim_prediction_token
+  downstream: fact_prediction_orderbook_snapshot
+  keys:
+  - token_id
+  relationship: 1-to-many snapshots
+  preserve: orderbook depth and volume proxy preserve liquidation-at-size and within-alpha capacity semantics
+- upstream: accounts
+  downstream: holdings
+  keys:
+  - account_id
+  relationship: 1-to-many
+  preserve: account constraints and tax treatment remain attached to held positions
+- upstream: accounts
+  downstream: cash_ledger
+  keys:
+  - account_id
+  relationship: 1-to-many
+  preserve: household boundary classification remains attached to each cash event
+- upstream: accounts
+  downstream: transactions
+  keys:
+  - account_id
+  relationship: 1-to-many
+  preserve: trade history links to the correct account boundary
+- upstream: accounts
+  downstream: tax_lots
+  keys:
+  - account_id
+  relationship: 1-to-many
+  preserve: embedded basis and holding-period state remain account specific
+- upstream: classification_rules
+  downstream: cash_ledger
+  keys:
+  - raw_code
+  - memo_pattern
+  - counterparty
+  relationship: many-rules-to-many-ledger_rows
+  preserve: deterministic audit trail from raw ledger text to boundary-flow class
+- upstream: external_marks
+  downstream: external_cash_flows
+  keys:
+  - external_id
+  relationship: 1-to-many over time
+  preserve: sparse mark history stays aligned with calls, distributions, and sale events

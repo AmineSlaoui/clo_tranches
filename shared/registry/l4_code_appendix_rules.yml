@@ -1,0 +1,30 @@
+note_title_overrides:
+  "8.3": Difference-in-Differences
+  "18.1": Copulas and GANs for Synthetic Financial Time Series Data
+source_family_fallback_labels:
+  parsed_research_papers: local paper corpus
+  private_syntheticdata_wide_history: private multi-asset export
+  private_syntheticdata_multi_asset_daily: private multi-asset export
+  private_syntheticdata_multi_asset_history: private multi-asset export
+  private_syntheticdata_multi_asset_export: private multi-asset export
+  private_syntheticdata_wide_export: private multi-asset export
+  private_local_bundle: private local bundle
+  public_macro_rates: public macro rates
+  local_paper_corpus: local paper corpus
+code_ignore_fragments:
+  - .git
+  - .pytest_cache
+  - .pytest_tmp
+  - __pycache__
+  - node_modules
+  - vault_staging
+artifact_dir_names:
+  - outputs
+  - rendered
+  - rendered-live
+  - rendered-sample
+  - examples
+  - figures
+snippet_target_lines: 45
+snippet_max_lines: 80
+snippet_max_count: 5

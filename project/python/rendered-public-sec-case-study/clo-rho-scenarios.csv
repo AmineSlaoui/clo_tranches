@@ -1,0 +1,4 @@
+scenario,rho,pooled_cohort_pd,calibration_mode,rho_source,rho_multiplier,pd_multiplier,cpr_multiplier,lgd_addon,discount_rate
+base,0.21,,scenario_explicit_rho,explicit_base,,,,,
+low,0.12,,scenario_explicit_rho,explicit,,1.0,1.0,0.0,0.04
+high,0.3,,scenario_explicit_rho,explicit,,1.0,1.0,0.0,0.04

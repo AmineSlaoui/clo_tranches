@@ -1,0 +1,4 @@
+scenario,rho,pooled_cohort_pd,calibration_mode,rho_source,rho_multiplier,pd_multiplier,cpr_multiplier,lgd_addon,discount_rate
+base,0.1627536231884058,0.01707438221780703,cohort_dispersion,cohort_dispersion,,,,,
+low,0.0813768115942029,0.01707438221780703,cohort_dispersion,multiplier,0.5,1.0,1.0,0.0,0.04
+high,0.4068840579710145,0.01707438221780703,cohort_dispersion,multiplier,2.5,1.0,1.0,0.0,0.04

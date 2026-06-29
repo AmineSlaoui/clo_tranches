@@ -1,0 +1,93 @@
+{
+  "data_mode": "public",
+  "calibration_mode": "cohort_dispersion",
+  "seed": 42,
+  "num_paths": 25000,
+  "horizon_years": 5,
+  "discount_rate": 0.04,
+  "output_root": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\rendered-sample",
+  "required_live_tables": [
+    "fact_clo_collateral_position",
+    "dim_clo_tranche",
+    "scenario_clo_stress"
+  ],
+  "optional_live_tables": [
+    "agg_clo_cohort_default",
+    "fact_clo_tranche_cashflow",
+    "fact_clo_manager_report",
+    "fact_clo_default_event",
+    "fact_clo_recovery_event"
+  ],
+  "collateral_valuation_schema": [
+    "loan_id",
+    "loan_identifier",
+    "sector",
+    "rating",
+    "current_balance",
+    "weight",
+    "annual_pd",
+    "annual_cpr",
+    "lgd",
+    "coupon_spread_bps",
+    "reference_rate",
+    "coupon_floor",
+    "maturity_years",
+    "discount_margin_bps",
+    "market_price",
+    "model_price",
+    "price_gap",
+    "expected_loss_pct",
+    "source_family"
+  ],
+  "collateral_valuation_note": "Collateral loans are valued before tranche allocation. Public mode uses a Bloomberg-compatible synthetic tape; live mode expects licensed/public exports mapped into the normalized contract.",
+  "source_metadata": {
+    "pack_label": "scenario",
+    "source_mode": "public_synthetic_bloomberg_compatible",
+    "source_families": [
+      "synthetic_bloomberg_compatible"
+    ],
+    "non_goals": [
+      "No vendor rows are committed.",
+      "The public runtime uses a Bloomberg-compatible synthetic collateral tape to exercise the valuation architecture.",
+      "Synthetic rows are development data and should be replaced by licensed Bloomberg exports for investment use."
+    ]
+  },
+  "scenario_table": [
+    {
+      "scenario": "base",
+      "rho": 0.162754,
+      "pooled_cohort_pd": 0.017074,
+      "calibration_mode": "cohort_dispersion",
+      "rho_source": "cohort_dispersion",
+      "rho_multiplier": null,
+      "pd_multiplier": null,
+      "cpr_multiplier": null,
+      "lgd_addon": null,
+      "discount_rate": null
+    },
+    {
+      "scenario": "low",
+      "rho": 0.081377,
+      "pooled_cohort_pd": 0.017074,
+      "calibration_mode": "cohort_dispersion",
+      "rho_source": "multiplier",
+      "rho_multiplier": 0.5,
+      "pd_multiplier": 1.0,
+      "cpr_multiplier": 1.0,
+      "lgd_addon": 0.0,
+      "discount_rate": 0.04
+    },
+    {
+      "scenario": "high",
+      "rho": 0.406884,
+      "pooled_cohort_pd": 0.017074,
+      "calibration_mode": "cohort_dispersion",
+      "rho_source": "multiplier",
+      "rho_multiplier": 2.5,
+      "pd_multiplier": 1.0,
+      "cpr_multiplier": 1.0,
+      "lgd_addon": 0.0,
+      "discount_rate": 0.04
+    }
+  ]
+}

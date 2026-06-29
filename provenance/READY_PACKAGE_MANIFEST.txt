@@ -1,0 +1,9 @@
+Ready package: 4.1 Correlation & Tail Risk in CLO Tranches
+Source zip: D:\dev\ECR Capital Management\Book2\zip_for_4700\L3_4_1_Correlation_and_Tail_Risk_in_CLO_Tranches_distribution.zip
+Internal project source: code/examples/Chapter 4/Correlation and Tail Risk in CLO Tranches
+Build run: 20260605_122811_12544
+Project files copied: 94
+Data files copied: 0
+Shared files copied: 19
+Sample files copied: 0
+Outer wrapper files preserved: 4

@@ -1,0 +1,5 @@
+check,value,status,detail
+path count,25000.0,pass,Monte Carlo paths used for the displayed low/high run.
+rho ordering,0.3255072463768116,pass,High-dependence state should exceed low-dependence state.
+same marginals,0.0,pass,"Low/high scenario rows keep PD, CPR, LGD, horizon, and deal geometry fixed; only rho changes."
+loan granularity,400.0,info,"Public SEC case-study collateral count; this is a finite-name deal, not an asymptotic Vasicek pool."

@@ -1,0 +1,33 @@
+release_tracks:
+- track_id: public
+  label: public
+  intended_use: original open data fetched directly from public sources
+  distribution_rule: may be published if source terms permit redistribution or reproducible fetch
+  target_contents:
+  - source manifests
+  - fetch recipes
+  - open data cards
+- track_id: pseudo
+  label: pseudo
+  intended_use: code execution fidelity
+  distribution_rule: may be published if schema-compatible and non-inferential
+  target_contents:
+  - vendor-compatible shells
+  - canonical substitutes
+  - validation reports
+- track_id: scenario
+  label: scenario
+  intended_use: execution plus qualitative structural realism
+  distribution_rule: may be published only after legal and fidelity review
+  target_contents:
+  - structurally informative synthetic panels
+  - scenario overlays
+  - chapter-facing validation artifacts
+- track_id: licensed
+  label: licensed
+  intended_use: internal-only reference and extraction workflows
+  distribution_rule: never distributed publicly
+  target_contents:
+  - local extraction notes
+  - internal adapters
+  - reference-only metadata

@@ -1,0 +1,4 @@
+scenario,rho,objective,rho_source
+base,0.21,,explicit_base
+low,0.12,,explicit
+high,0.3,,explicit

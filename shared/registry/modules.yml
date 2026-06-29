@@ -1,0 +1,299 @@
+modules:
+- module_id: entity_identifier_master
+  name: Entity & Identifier Master
+  phase: P0
+  pack_default: pseudo
+  owner: TBD
+  outputs:
+  - dim_entity
+  - dim_security
+  - dim_identifier
+  - dim_calendar
+  - dim_venue
+  critical_dependencies:
+  - stable parent-child entity relationships
+  - identifier history with effective dates
+  - share-class and venue relationships
+- module_id: corporate_actions_listing
+  name: Corporate Actions & Listing Life Cycle
+  phase: P0
+  pack_default: pseudo
+  owner: TBD
+  outputs:
+  - fact_corporate_action
+  - dim_listing
+  critical_dependencies:
+  - splits/dividends/delistings reconcile with price paths
+  - listing intervals align with identifier history
+- module_id: equity_daily
+  name: Daily Equity / ETF Prices
+  phase: P0
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - fact_equity_price_daily
+  - agg_liquidity_daily
+  - panel_etf_price_daily_live
+  critical_dependencies:
+  - returns-volume-liquidity relationships
+  - corporate actions reflected in adjusted series
+- module_id: intraday_bars
+  name: Intraday Bars / TAQ Layer
+  phase: P1
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - fact_bar_1m
+  - agg_realized_vol_daily
+  - agg_intraday_liquidity_daily
+  - panel_etf_bar_1m_live
+  critical_dependencies:
+  - minute bars aggregate to daily OHLCV
+  - intraday structure generates usable realized volatility
+- module_id: options_contracts
+  name: Options Contract Master
+  phase: P1
+  pack_default: pseudo
+  owner: TBD
+  outputs:
+  - dim_option_contract
+  critical_dependencies:
+  - contract metadata consistent with underlying and calendars
+  - expiry, strike, and option root conventions
+- module_id: options_eod_surface
+  name: Options EOD / Surface
+  phase: P1
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - fact_option_eod
+  - fact_option_surface_eod
+  - agg_option_gamma_daily
+  critical_dependencies:
+  - underlying-close to IV surface to Greeks to OI
+  - smooth moneyness-tenor structure
+- module_id: rates_curves_macro
+  name: Rates / Curves / Macro
+  phase: P1
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - fact_macro_observation
+  - fact_macro_observation_vintage
+  - fact_rate_curve_node
+  - agg_curve_daily
+  - panel_treasury_fixed_term_daily
+  critical_dependencies:
+  - curve-node consistency
+  - point-in-time availability for ALFRED-style data
+- module_id: futures_commodity
+  name: Futures / Commodity
+  phase: P2
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - dim_future_contract
+  - fact_futures_price_daily
+  - fact_futures_bar_1m
+  critical_dependencies:
+  - contract roll logic
+  - curve state tied to spot/carry dynamics
+- module_id: bonds_trades_quotes
+  name: Bonds / Trades / Quotes
+  phase: P2
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - dim_bond_issue
+  - fact_bond_trade
+  - fact_bond_quote
+  critical_dependencies:
+  - issue master tied to trade and quote panels
+  - price-yield-volume relationships
+- module_id: structured_credit_clo
+  name: Structured Credit / CLO
+  phase: P2
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - fact_clo_collateral_position
+  - agg_clo_cohort_default
+  - dim_clo_tranche
+  - fact_clo_tranche_cashflow
+  - fact_clo_manager_report
+  - fact_clo_default_event
+  - fact_clo_recovery_event
+  - scenario_clo_stress
+  critical_dependencies:
+  - collateral positions, default events, and recovery events must reconcile to the same deal and loan identities
+  - cohort default histories must remain explicit so rho calibration is auditable rather than inferred from one opaque scalar
+  - tranche structures, cash flows, manager reports, and stress scenarios must stay aligned to the same representative deal and reporting dates
+- module_id: fundamentals_pti
+  name: Fundamentals / Point-in-Time
+  phase: P3
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - fact_fundamental_period
+  - fact_analyst_estimate
+  - fact_firm_event
+  critical_dependencies:
+  - report dates vs public availability dates
+  - panel consistency by entity and fiscal period
+- module_id: esg
+  name: ESG
+  phase: P3
+  pack_default: pseudo
+  owner: TBD
+  outputs:
+  - fact_esg_metric
+  critical_dependencies:
+  - entity-level linkage and sparse metric structure
+- module_id: funds_holdings
+  name: Funds / Holdings
+  phase: P3
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - dim_fund
+  - fact_fund_holding
+  - fact_fund_flow
+  critical_dependencies:
+  - fund-to-security holdings roll forward logically
+  - holdings linked to security master
+- module_id: private_markets
+  name: Private Markets
+  phase: P3
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - dim_private_company
+  - fact_private_round
+  - fact_private_investor_participation
+  - fact_private_exit
+  critical_dependencies:
+  - funding rounds, censoring, and outcomes
+  - investor-company-exit histories
+- module_id: private_markets_licensed_reproduction
+  name: Private Markets Licensed Reproduction Package
+  phase: P3
+  pack_default: licensed
+  owner: TBD
+  outputs:
+  - licensed_crunchbase_surface
+  - licensed_preqin_linkage_surface
+  - licensed_commoncrawl_homepage_proxy_surface
+  - licensed_paper7_reproduction_outputs
+  critical_dependencies:
+  - recipient authorization for Crunchbase and Preqin-derived rows
+  - Common Crawl proxy artifacts remain linked to licensed company/domain surfaces
+  - package manifests, hashes, and schema catalogs reconcile to copied files
+- module_id: patents_innovation
+  name: Patents / Innovation
+  phase: P3
+  pack_default: pseudo
+  owner: TBD
+  outputs:
+  - dim_patent
+  - fact_patent_assignee
+  - fact_patent_citation
+  critical_dependencies:
+  - firm-to-patent linkage
+  - citation graph and time ordering
+- module_id: events_regimes
+  name: Events / Regime Overlay
+  phase: P2
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - event_market_regime
+  - event_treasury_refunding
+  critical_dependencies:
+  - event timing aligns with impacted securities and curves
+  - scenario shocks propagate across modules
+- module_id: ohlc_implied_spread
+  name: OHLC-Implied Spread & Liquidity State
+  phase: P2
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - panel_ohlc_bid_ask_daily
+  critical_dependencies:
+  - daily open-high-low-close geometry must remain internally coherent
+  - spread, volatility, and simple flow proxies should co-move across liquidity states
+- module_id: execution_order_scenarios
+  name: Parent Order Scenarios
+  phase: P2
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - fact_parent_order_request
+  critical_dependencies:
+  - order timing and side must align with the available intraday bar calendar
+  - order size and participation assumptions must be plausible relative to observed intraday volume
+- module_id: gamma_paper_reversal
+  name: Paper-Style Gamma Reversal Baseline
+  phase: P2
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - panel_gamma_paper_backtest_daily
+  critical_dependencies:
+  - point-in-time membership and lagged scale must stay aligned with stock-day rows
+  - intraday snapshot windows must remain arithmetically consistent
+- module_id: gamma_signal_enhancement
+  name: Gamma Signal Enhancement
+  phase: P2
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - fact_option_gamma_pair_daily
+  critical_dependencies:
+  - exact pair-level option gamma rows must aggregate coherently into daily conditioning states
+  - option coverage and liquidity scaling must remain interpretable for baseline-versus-enhanced comparisons
+- module_id: equity_monthly_predictors
+  name: Equity Monthly Predictor Panel
+  phase: P3
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - panel_equity_cluster_monthly
+  - panel_equity_factor_research_monthly
+  critical_dependencies:
+  - point-in-time security-month alignment across market, descriptor, and fundamental inputs
+  - mixed numeric, categorical, and text feature blocks remain internally consistent
+  - segment rollups activate on or before month_end
+- module_id: prediction_markets
+  name: Prediction Markets
+  phase: P2
+  pack_default: pseudo
+  owner: TBD
+  outputs:
+  - dim_prediction_market
+  - dim_prediction_token
+  - fact_prediction_position_snapshot
+  - fact_prediction_orderbook_snapshot
+  critical_dependencies:
+  - market/question/condition and YES/NO token pairing remain explicit
+  - borrower positions and orderbooks must join to the same token/market snapshot
+  - orderbook depth and volume proxy must preserve liquidation-at-size and within-alpha capacity semantics
+- module_id: household_ledger
+  name: Household Ledger / External Assets
+  phase: P3
+  pack_default: scenario
+  owner: TBD
+  outputs:
+  - accounts
+  - holdings
+  - cash_ledger
+  - transactions
+  - tax_lots
+  - external_marks
+  - external_cash_flows
+  - factor_or_asset_returns
+  - classification_rules
+  critical_dependencies:
+  - internal transfers must pair and net to zero at the declared household boundary
+  - in-kind contributions must preserve both performance entry value and tax basis metadata
+  - sparse external asset marks must remain sparse and never be expanded into a deterministic daily return path
+  - policy comparisons must keep aggregate tradable exposures matched within explicit tolerance bands

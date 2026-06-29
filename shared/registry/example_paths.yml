@@ -1,0 +1,316 @@
+examples:
+- chapter_id: buy_vs_rent
+  index_chapter: Chapter 1
+  index_note_title: The Buy vs. Rent Investment Decision
+  public_example_title: The Buy vs. Rent Investment Decision
+  public_example_root: examples/Chapter 1/The Buy vs. Rent Investment Decision
+- chapter_id: incentive_structures
+  index_chapter: Chapter 1
+  index_note_title: Incentive Structures
+  public_example_title: Incentive Structures
+  public_example_root: examples/Chapter 1/Incentive Structures
+- chapter_id: barrier_notes_investment_financing
+  index_chapter: Chapter 1
+  index_note_title: Barrier Notes for Investment Financing
+  public_example_title: Barrier Notes for Investment Financing
+  public_example_root: examples/Chapter 1/Barrier Notes for Investment Financing
+- chapter_id: in_house_private_equity
+  index_chapter: Chapter 2
+  index_note_title: In-House Private Equity Platform
+  public_example_title: In-House Private Equity Platform
+  public_example_root: examples/Chapter 2/In-House Private Equity Platform
+- chapter_id: ml_equity_alpha_pipeline
+  index_chapter: Chapter 2
+  index_note_title: Machine-Learning Equity Alpha Pipeline
+  public_example_title: Machine-Learning Equity Alpha Pipeline
+  public_example_root: examples/Chapter 2/Machine-Learning Equity Alpha Pipeline
+- chapter_id: investment_policy_statement_hedge_fund
+  index_chapter: Chapter 3
+  index_note_title: Investment Policy Statement (IPS) for a Hedge Fund
+  public_example_title: Investment Policy Statement (IPS) for a Hedge Fund
+  public_example_root: examples/Chapter 3/Investment Policy Statement (IPS) for a Hedge Fund
+- chapter_id: investment_due_diligence_hedge_fund
+  index_chapter: Chapter 3
+  index_note_title: Investment Due Diligence (IDD) for a Hedge Fund
+  public_example_title: Investment Due Diligence (IDD) for a Hedge Fund
+  public_example_root: examples/Chapter 3/Investment Due Diligence (IDD) for a Hedge Fund
+- chapter_id: business_model_coherence_investment_signal
+  index_chapter: Chapter 3
+  index_note_title: Business Model Coherence as an Investment Signal
+  public_example_title: Business Model Coherence as an Investment Signal
+  public_example_root: examples/Chapter 3/Business Model Coherence as an Investment Signal
+- chapter_id: clo_tail_risk
+  index_chapter: Chapter 4
+  index_note_title: Correlation and Tail Risk in CLO Tranches
+  public_example_title: Correlation and Tail Risk in CLO Tranches
+  public_example_root: examples/Chapter 4/Correlation and Tail Risk in CLO Tranches
+- chapter_id: eth_staking_regime_switching
+  index_chapter: Chapter 4
+  index_note_title: Ethereum as a Long-Duration Asset, A Simple Regime-Switching Model
+  public_example_title: Ethereum as a Long-Duration Asset, A Simple Regime-Switching Model
+  public_example_root: examples/Chapter 4/Ethereum as a Long-Duration Asset, A Simple Regime-Switching Model
+- chapter_id: archival_point_in_time_data
+  index_chapter: Chapter 5
+  index_note_title: Archival (Point-in-Time) Data (Vintages & Cohorts)
+  public_example_title: Archival (Point-in-Time) Data (Vintages & Cohorts)
+  public_example_root: examples/Chapter 5/Archival (Point-in-Time) Data (Vintages & Cohorts)
+- chapter_id: frequency_change
+  index_chapter: Chapter 5
+  index_note_title: Frequency Change
+  public_example_title: Frequency Change
+  public_example_root: examples/Chapter 5/Frequency Change
+- chapter_id: capital_markets_assumptions
+  index_chapter: Chapter 5
+  index_note_title: Capital Markets Assumptions
+  public_example_title: Capital Markets Assumptions
+  public_example_root: examples/Chapter 5/Capital Markets Assumptions
+- chapter_id: financing
+  index_chapter: Chapter 5
+  index_note_title: Financing
+  public_example_title: Financing
+  public_example_root: examples/Chapter 5/Financing
+- chapter_id: anchor_purification
+  index_chapter: Chapter 6
+  index_note_title: Purification
+  public_example_title: Purification
+  public_example_root: examples/Chapter 6/Purification
+- chapter_id: sample_size_discovery_efficiency
+  index_chapter: Chapter 6
+  index_note_title: Sample Size and Discovery Efficiency in Equity Factor Research
+  public_example_title: Sample Size and Discovery Efficiency in Equity Factor Research
+  public_example_root: examples/Chapter 6/Sample Size and Discovery Efficiency in Equity Factor Research
+- chapter_id: using_swaption_caps_to_predict_crisis_regimes
+  index_chapter: Chapter 6
+  index_note_title: Using Swaption Caps to Predict Crisis Regimes
+  public_example_title: Using Swaption Caps to Predict Crisis Regimes
+  public_example_root: examples/Chapter 6/Using Swaption Caps to Predict Crisis Regimes
+- chapter_id: missing_and_minority_data
+  index_chapter: Chapter 6
+  index_note_title: Missing and Minority Data
+  public_example_title: Missing and Minority Data
+  public_example_root: examples/Chapter 6/Missing and Minority Data
+- chapter_id: ten_financial_economic_factors
+  index_chapter: Chapter 7
+  index_note_title: Ten Financial-Economic Factors (Niche and Cross-Asset)
+  public_example_title: Ten Financial-Economic Factors (Niche and Cross-Asset)
+  public_example_root: examples/Chapter 7/Ten Financial-Economic Factors (Niche and Cross-Asset)
+- chapter_id: factors_vs_features_quant_shop
+  index_chapter: Chapter 7
+  index_note_title: Factors vs Features in a Quant Shop
+  public_example_title: Factors vs Features in a Quant Shop
+  public_example_root: examples/Chapter 7/Factors vs Features in a Quant Shop
+- chapter_id: how_factors_and_features_interact_in_practice
+  index_chapter: Chapter 7
+  index_note_title: How Factors and Features Interact in Practice
+  public_example_title: How Factors and Features Interact in Practice
+  public_example_root: examples/Chapter 7/How Factors and Features Interact in Practice
+- chapter_id: gamma_imbalance
+  index_chapter: Chapter 8
+  index_note_title: Options Momentum & Gamma Imbalance
+  public_example_title: Options Momentum & Gamma Imbalance
+  public_example_root: examples/Chapter 8/Options Momentum & Gamma Imbalance
+- chapter_id: conformal_prediction
+  index_chapter: Chapter 8
+  index_note_title: Conformal Prediction
+  public_example_title: Conformal Prediction
+  public_example_root: examples/Chapter 8/Conformal Prediction
+- chapter_id: difference_in_differences
+  index_chapter: Chapter 8
+  index_note_title: Difference-in-Differences
+  public_example_title: Difference-in-Differences
+  public_example_root: examples/Chapter 8/Difference-in-Differences
+- chapter_id: ceasefire_implied_uso
+  index_chapter: Chapter 8
+  index_note_title: Implied Ceasefire Timing from USO Options
+  public_example_title: Implied Ceasefire Timing from USO Options
+  public_example_root: examples/Chapter 8/Implied Ceasefire Timing from USO Options
+- chapter_id: pe_vc_hazard
+  index_chapter: Chapter 9
+  index_note_title: VC & PE Exit Prediction
+  public_example_title: VC & PE Exit Prediction
+  public_example_root: examples/Chapter 9/VC & PE Exit Prediction
+- chapter_id: backtesting_event_based_objective_functions
+  index_chapter: Chapter 9
+  index_note_title: Backtesting Event-Based Objective Functions
+  public_example_title: Backtesting Event-Based Objective Functions
+  public_example_root: examples/Chapter 9/Backtesting Event-Based Objective Functions
+- chapter_id: multi_period_reward_discounted_cash_flows
+  index_chapter: Chapter 9
+  index_note_title: Multi-Period Reward with Discounted Cash Flows
+  public_example_title: Multi-Period Reward with Discounted Cash Flows
+  public_example_root: examples/Chapter 9/Multi-Period Reward with Discounted Cash Flows
+- chapter_id: tax_aware_objective
+  index_chapter: Chapter 9
+  index_note_title: Tax-Aware Objective, Timing, Netting, and Householding
+  public_example_title: Tax-Aware Objective, Timing, Netting, and Householding
+  public_example_root: examples/Chapter 9/Tax-Aware Objective, Timing, Netting, and Householding
+- chapter_id: llm_idea_generation
+  index_chapter: Chapter 10
+  index_note_title: Large Language Models for Idea Generation
+  public_example_title: Large Language Models for Idea Generation
+  public_example_root: examples/Chapter 10/Large Language Models for Idea Generation
+- chapter_id: machine_learning_apps_efficient_model_exploration
+  index_chapter: Chapter 10
+  index_note_title: Machine Learning Apps for Efficient Model Exploration
+  public_example_title: Machine Learning Apps for Efficient Model Exploration
+  public_example_root: examples/Chapter 10/Machine Learning Apps for Efficient Model Exploration
+- chapter_id: physics_informed_neural_networks_otc_options_pricing
+  index_chapter: Chapter 10
+  index_note_title: Physics-Informed Neural Networks for OTC Options Pricing
+  public_example_title: Physics-Informed Neural Networks for OTC Options Pricing
+  public_example_root: examples/Chapter 10/Physics-Informed Neural Networks for OTC Options Pricing
+- chapter_id: gaming_engines_environmental_sensitivity_factor
+  index_chapter: Chapter 10
+  index_note_title: Gaming Engines for Environmental Sensitivity Factor
+  public_example_title: Gaming Engines for Environmental Sensitivity Factor
+  public_example_root: examples/Chapter 10/Gaming Engines for Environmental Sensitivity Factor
+- chapter_id: private_credit_or_structured_credit_rv_process
+  index_chapter: Chapter 11
+  index_note_title: Private Credit or Structured Credit RV Process
+  public_example_title: Private Credit or Structured Credit RV Process
+  public_example_root: examples/Chapter 11/Private Credit or Structured Credit RV Process
+- chapter_id: macro_nowcast_driven_factor_forecasts
+  index_chapter: Chapter 11
+  index_note_title: Macro Nowcast-Driven Factor Forecasts
+  public_example_title: Macro Nowcast-Driven Factor Forecasts
+  public_example_root: examples/Chapter 11/Macro Nowcast-Driven Factor Forecasts
+- chapter_id: flow_positioning_hft
+  index_chapter: Chapter 11
+  index_note_title: Flow and Positioning-Based Factor Forecasts for High Frequency Trading (HFT)
+  public_example_title: Flow and Positioning-Based Factor Forecasts for High Frequency Trading (HFT)
+  public_example_root: examples/Chapter 11/Flow and Positioning-Based Factor Forecasts for High Frequency Trading (HFT)
+- chapter_id: avellaneda_stoikov_market_making_futures_hedging
+  index_chapter: Chapter 11
+  index_note_title: Avellaneda-Stoikov Market Making with Futures Hedging
+  public_example_title: Avellaneda-Stoikov Market Making with Futures Hedging
+  public_example_root: examples/Chapter 11/Avellaneda-Stoikov Market Making with Futures Hedging
+- chapter_id: validating_regime_switching_model
+  index_chapter: Chapter 11
+  index_note_title: Validating a Regime Switching Model
+  public_example_title: Validating a Regime Switching Model
+  public_example_root: examples/Chapter 11/Validating a Regime Switching Model
+- chapter_id: ic_optimization
+  index_chapter: Chapter 12
+  index_note_title: IC Optimization
+  public_example_title: IC Optimization
+  public_example_root: examples/Chapter 12/IC Optimization
+- chapter_id: advanced_clustering
+  index_chapter: Chapter 12
+  index_note_title: Strategy and Asset Class Clustering with UMAP and HDBSCAN
+  public_example_title: Strategy and Asset Class Clustering with UMAP and HDBSCAN
+  public_example_root: examples/Chapter 12/Strategy and Asset Class Clustering with UMAP and HDBSCAN
+- chapter_id: curse_of_dimensionality
+  index_chapter: Chapter 12
+  index_note_title: Curse of Dimensionality
+  public_example_title: Curse of Dimensionality
+  public_example_root: examples/Chapter 12/Curse of Dimensionality
+- chapter_id: kelly_sizing
+  index_chapter: Chapter 12
+  index_note_title: Kelly Sizing
+  public_example_title: Kelly Sizing
+  public_example_root: examples/Chapter 12/Kelly Sizing
+- chapter_id: private_credit_systematic_deal_relative_value_ideas
+  index_chapter: Chapter 13
+  index_note_title: Private Credit - Systematic Deal Relative Value Ideas
+  public_example_title: Private Credit - Systematic Deal Relative Value Ideas
+  public_example_root: examples/Chapter 13/Private Credit - Systematic Deal Relative Value Ideas
+- chapter_id: single_name_credit_rv_expression
+  index_chapter: Chapter 13
+  index_note_title: Single-Name Credit vs Index vs Bond Relative Value Expression
+  public_example_title: Single-Name Credit vs Index vs Bond Relative Value Expression
+  public_example_root: examples/Chapter 13/Single-Name Credit vs Index vs Bond Relative Value Expression
+- chapter_id: bond_refunding_paper
+  index_chapter: Chapter 14
+  index_note_title: Bonds Refunding Paper
+  public_example_title: Bonds Refunding Paper
+  public_example_root: examples/Chapter 14/Bonds Refunding Paper
+- chapter_id: householding_external_assets
+  index_chapter: Chapter 14
+  index_note_title: Cash Inflows and Outflows; Householding and External Assets
+  public_example_title: Cash Inflows and Outflows; Householding and External Assets
+  public_example_root: examples/Chapter 14/Cash Inflows and Outflows; Householding and External Assets
+- chapter_id: ohlc_implied_bid_ask_spread
+  index_chapter: Chapter 15
+  index_note_title: Estimating Market Impact with Bar Data OHLCV Impact
+  public_example_title: Estimating Market Impact with Bar Data OHLCV Impact
+  public_example_root: examples/Chapter 15/Estimating Market Impact with Bar Data OHLCV Impact
+- chapter_id: bar_implied_market_impact
+  index_chapter: Chapter 15
+  index_note_title: Estimating Market Impact with Bar Data Efficient VWAP
+  public_example_title: Estimating Market Impact with Bar Data Efficient VWAP
+  public_example_root: examples/Chapter 15/Estimating Market Impact with Bar Data Efficient VWAP
+- chapter_id: shorting
+  index_chapter: Chapter 15
+  index_note_title: Shorting
+  public_example_title: Shorting
+  public_example_root: examples/Chapter 15/Shorting
+- chapter_id: opportunistic_rebalancing
+  index_chapter: Chapter 16
+  index_note_title: Opportunistic Rebalancing
+  public_example_title: Opportunistic Rebalancing
+  public_example_root: examples/Chapter 16/Opportunistic Rebalancing
+- chapter_id: multi_period_rebalancing
+  index_chapter: Chapter 16
+  index_note_title: Multi-Period Rebalancing
+  public_example_title: Multi-Period Rebalancing
+  public_example_root: examples/Chapter 16/Multi-Period Rebalancing
+- chapter_id: tracking_tax_lots
+  index_chapter: Chapter 16
+  index_note_title: Tracking Tax Lots
+  public_example_title: Tracking Tax Lots
+  public_example_root: examples/Chapter 16/Tracking Tax Lots
+- chapter_id: quantum_discrete_portfolio
+  index_chapter: Chapter 17
+  index_note_title: Quantum Computing and Asset Management
+  public_example_title: Quantum Computing and Asset Management
+  public_example_root: examples/Chapter 17/Quantum Computing and Asset Management
+- chapter_id: large_data_parallel_distributed_computing
+  index_chapter: Chapter 17
+  index_note_title: Large Data Sets, Parallel Processing, & Distributed Computing with MATLAB, Python, and R
+  public_example_title: Large Data Sets, Parallel Processing, & Distributed Computing with MATLAB, Python, and R
+  public_example_root: examples/Chapter 17/Large Data Sets, Parallel Processing, & Distributed Computing with MATLAB, Python, and R
+- chapter_id: experimenting_matlab_experiment_manager_python_r
+  index_chapter: Chapter 17
+  index_note_title: Experimenting with the MATLAB Experiment Manger and Python and R
+  public_example_title: Experimenting with the MATLAB Experiment Manger and Python and R
+  public_example_root: examples/Chapter 17/Experimenting with the MATLAB Experiment Manger and Python and R
+- chapter_id: dcc
+  index_chapter: Chapter 18
+  index_note_title: Copulas and GANs for Synthetic Financial Time Series Data
+  public_example_title: Copulas and GANs for Synthetic Financial Time Series Data
+  public_example_root: examples/Chapter 18/Copulas and GANs for Synthetic Financial Time Series Data
+- chapter_id: polymarket_collateralized_lending
+  index_chapter: Chapter 18
+  index_note_title: Polymarket Collateralized Lending
+  public_example_title: Polymarket Collateralized Lending
+  public_example_root: examples/Chapter 18/Polymarket Collateralized Lending
+- chapter_id: pe_vs_public_cornish_fisher
+  index_chapter: Chapter 18
+  index_note_title: Comparing Private Equity to Public Equity with the Cornish Fischer Expansion
+  public_example_title: Comparing Private Equity to Public Equity with the Cornish Fischer Expansion
+  public_example_root: examples/Chapter 18/Comparing Private Equity to Public Equity with the Cornish Fischer Expansion
+- chapter_id: p_hacking_deflated_sharpe_ratio
+  index_chapter: Chapter 18
+  index_note_title: P-Hacking and the Deflated Sharpe Ratio
+  public_example_title: P-Hacking and the Deflated Sharpe Ratio
+  public_example_root: examples/Chapter 18/P-Hacking and the Deflated Sharpe Ratio
+- chapter_id: evaluating_comparing_risk_model
+  index_chapter: Chapter 18
+  index_note_title: Evaluating and Comparing Risk Model
+  public_example_title: Evaluating and Comparing Risk Model
+  public_example_root: examples/Chapter 18/Evaluating and Comparing Risk Model
+- chapter_id: dynamic_risk_throttling_drawdowns
+  index_chapter: Chapter 19
+  index_note_title: Dynamic Risk Throttling in Drawdowns
+  public_example_title: Dynamic Risk Throttling in Drawdowns
+  public_example_root: examples/Chapter 19/Dynamic Risk Throttling in Drawdowns
+- chapter_id: client_communications
+  index_chapter: Chapter 19
+  index_note_title: Client Communications
+  public_example_title: Client Communications
+  public_example_root: examples/Chapter 19/Client Communications
+- chapter_id: liquidity_aware_order_scheduling
+  index_chapter: Chapter 19
+  index_note_title: Liquidity-Aware Order Scheduling and Slippage Control
+  public_example_title: Liquidity-Aware Order Scheduling and Slippage Control
+  public_example_root: examples/Chapter 19/Liquidity-Aware Order Scheduling and Slippage Control

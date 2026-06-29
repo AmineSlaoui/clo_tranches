@@ -1,0 +1,73 @@
+{
+  "manifest_version": "2026-06-02.file-manifest.v1",
+  "generated_at_utc": "2026-06-02T13:37:10.593245+00:00",
+  "scope": "canonical_l3_notebook",
+  "num": "4.1",
+  "project": "Correlation and Tail Risk in CLO Tranches",
+  "notebook_path": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\notebooks\\L3_4_1_clo_tail_risk.ipynb",
+  "project_root": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches",
+  "execution_status": {
+    "status": "unknown",
+    "blocker": "",
+    "source_report": ""
+  },
+  "commands": {
+    "public_or_sample": [
+      [
+        "C:\\ProgramData\\anaconda3\\python.exe",
+        "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\run_example.py",
+        "--output-dir",
+        "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\outputs\\notebook_public"
+      ]
+    ],
+    "private_or_internal": [
+      [
+        "C:\\ProgramData\\anaconda3\\python.exe",
+        "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\run_example.py",
+        "--output-dir",
+        "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\outputs\\notebook_private",
+        "--live-root"
+      ]
+    ]
+  },
+  "required_files": [
+    {
+      "path": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\run_example.py",
+      "role": "command_referenced_source|entrypoint",
+      "required": true,
+      "exists": true,
+      "kind": "file",
+      "bytes": 1217
+    },
+    {
+      "path": "D:\\dev\\ECR Capital Management\\Book2\\data\\eamples\\per_project_internal_code_data_20260521_194701\\Chapter 4 - Correlation and Tail Risk in CLO Tranches - internal code and data.zip",
+      "role": "internal_code_data_package_zip",
+      "required": true,
+      "exists": true,
+      "kind": "file",
+      "bytes": 3243825,
+      "note": "Per-project internal code/data packet."
+    },
+    {
+      "path": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\notebooks\\L3_4_1_clo_tail_risk.ipynb",
+      "role": "notebook",
+      "required": true,
+      "exists": true,
+      "kind": "file",
+      "bytes": 7967
+    }
+  ],
+  "required_directories": [
+    {
+      "path": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches",
+      "role": "project_root",
+      "required": true,
+      "exists": true,
+      "kind": "directory"
+    }
+  ],
+  "required_environment_variables": [
+    "BOOK2_CLO_LIVE_ROOT"
+  ],
+  "minimality_rule": "Includes the notebook, command entry points, project-local source/config/sample-data files reachable from the notebook command path, the per-project internal package zip, and declared private inputs. Excludes outputs, caches, tests, notebook checkpoints, and generated run artifacts."
+}

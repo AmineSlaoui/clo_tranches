@@ -1,0 +1,12 @@
+metric,realized_value,assumed_value,source_file,confidence,notes
+CDR,0.55,"0.55 (ladder [0.55, 2.0])",CLP/ARES_2023_68A_CLP_Summary.xlsx | SYT (brief default — file absent),reported,"Realized = CLP 'Default %' @05/2026 (current 0.55%, peak 1.01%). Assumed = SYT CDR ladder. Realized has run far below the stressed 0.55+ CDR rungs."
+recovery_rate,38.72,39.0,CLP/ARES_2023_68A_CLP_Summary.xlsx | SYT (brief default — file absent),reported,Realized = CLP 'Min S&P Rec Rate' @05/2026 (%). Assumed = 100 - SYT severity (61.0). TRIG covenant min = 37.25%.
+severity,61.28,61.0,CLP/ARES_2023_68A_CLP_Summary.xlsx | SYT (brief default — file absent),reported,Realized = 100 - CLP 'Min S&P Rec Rate' @05/2026. Assumed = SYT severity. Assumed severity is far harsher than realized.
+WAC,6.608,7.0,CLP/ARES_2023_68A_CLP_Summary.xlsx | TRIG,reported,Realized = CLP 'WAC' @05/2026 (%). 'Assumed' shown = TRIG WAC covenant (= 7%); SYT has no WAC input.
+weighted_avg_margin,3.011,2.8,CLP/ARES_2023_68A_CLP_Summary.xlsx | TRIG,reported,Realized = CLP 'Weighted Average Margin' @05/2026 (%). 'Assumed' = TRIG WAS covenant min (2.8%); SYT has no margin input.
+ccc_pct,6.93,7.5,CLP/ARES_2023_68A_CLP_Summary.xlsx | TRIG,reported,Realized = CLP 'S&P CCC+ and below' @05/2026 (%). 'Assumed' = TRIG S&P CCC covenant cap (< 7.5%).
+balance_weighted_recovery,38.54,39.0,LLD/lld_ares_2023.xlsx | SYT (brief default — file absent),reported,Cross-check: wavg LLD 'S&P Recovery Rate'(x100) by Current Balance. Higher than CLP min-rec by design (mean vs minimum).
+collateral_par,"492,060,794",n/a,LLD/lld_ares_2023.xlsx,reported,sum(LLD 'Current Balance') over 415 loans (USD).
+reinv_rate,n/a,3.63,SYT (brief default — file absent),reported,SYT 'Reinv Rt Pct' — assumed reinvestment rate; no realized collateral analogue.
+par_haircut,n/a,0.41,SYT (brief default — file absent),reported,SYT 'Par Haircut' — assumed; no realized collateral analogue.
+lag,n/a,12.0,SYT (brief default — file absent),reported,SYT recovery 'Lag' (months) — assumed timing input; not directly observable.

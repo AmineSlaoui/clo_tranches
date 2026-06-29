@@ -1,0 +1,69 @@
+---
+title: "Collateralized Loan Obligation"
+output: html_notebook
+---
+
+## Learning objective
+
+This notebook mirrors the public Python CLO example in R. It keeps the chapter
+small and focused:
+
+- calibrate a one-factor asset correlation from repeated cohort default-rate dispersion
+- hold marginals fixed and compare a low-rho and high-rho regime
+- map collateral loss into true tranche-by-tranche principal loss
+- report pathwise warning-trigger frequencies and loss-compensation spreads
+
+## The waterfall map
+
+For a tranche with attachment $a$ and detachment $b$, principal loss on
+collateral par is
+
+$$
+\ell_{[a,b]}(L_f)=\min\{\max(L_f-a,0),\,b-a\}.
+$$
+
+As a fraction of tranche notional,
+
+$$
+\tilde{\ell}_{[a,b]}(L_f)=\frac{\ell_{[a,b]}(L_f)}{b-a}.
+$$
+
+## Dependence calibration
+
+The public implementation estimates $\rho$ from repeated cohort default-rate
+dispersion. Let cohort $j$ have default rate $r_j=d_j/n_j$. The fitted
+one-year PD is
+
+$$
+p=\frac{\sum_j d_j}{\sum_j n_j},
+$$
+
+and the Vasicek pairwise joint-default probability is
+
+$$
+q_2(\rho)=\Phi_2\bigl(\Phi^{-1}(p),\,\Phi^{-1}(p);\,\rho\bigr).
+$$
+
+The calibration chooses the $\rho$ that best matches the observed
+cross-cohort variance of $r_j$.
+
+```{r}
+source("CLO.R", local = globalenv())
+```
+
+## Scenario table
+
+```{r}
+scenario_table
+```
+
+## Tranche summary
+
+```{r}
+summary_table
+```
+
+## Rendered outputs
+
+The sample figures and tables written by this notebook live in
+`rendered-sample/`.

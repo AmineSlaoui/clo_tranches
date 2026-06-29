@@ -1,0 +1,463 @@
+chapters:
+- chapter_id: buy_vs_rent
+  name: The Buy vs. Rent Investment Decision
+  owner: TBD
+  status: active
+  requires: []
+  fidelity: {}
+  critical_dependencies:
+  - cumulative monthly discount factors must be used when discount rates vary by month
+  - fixed-rate mortgage payments must remain fixed after origination
+  - owner repairs and assessments must be counted once
+  - net sale proceeds must be modeled path by path inside the owning leg
+- chapter_id: barrier_notes_investment_financing
+  name: Barrier Notes for Investment Financing
+  owner: TBD
+  status: active
+  requires: []
+  fidelity: {}
+  critical_dependencies:
+  - the public example must remain a self-contained synthetic financing comparison until a reusable structured-note pack is explicitly registered
+  - the local live path may read dealer term-sheet, issuance, financing, and payout-monitoring extracts plus optional ICE reference files outside repo only
+  - the optional real-market helper may combine a public SEC note term sheet with local Bloomberg market history, but those Bloomberg rows must remain local-only and the helper must stay explicit that it is a financing proxy rather than an exact note replay
+  - plain-loan and structured-loan comparisons must preserve the same collateral, funded sleeve, liquidation accounting, and horizon so only financing terms and trigger states change
+  - barrier breach, cap transfer, margin-call unwind, recovery, fees, and funding terms must remain separate audit outputs rather than notebook-local heuristics
+- chapter_id: gamma_imbalance
+  name: Gamma Imbalance (Legacy Umbrella)
+  owner: TBD
+  status: legacy
+  requires:
+  - dim_security
+  - dim_option_contract
+  - fact_equity_price_daily
+  - fact_option_eod
+  - fact_option_surface_eod
+  - agg_option_gamma_daily
+  - agg_realized_vol_daily
+  - fact_macro_observation
+  fidelity:
+    fact_equity_price_daily: scenario
+    fact_option_eod: scenario
+    agg_realized_vol_daily: scenario
+  critical_dependencies:
+  - underlying close -> IV surface -> Greeks -> OI
+  - daily ADV/liquidity -> gamma normalization
+  - minute bars -> realized vol
+- chapter_id: clo_tail_risk
+  name: Correlation and Tail Risk in CLO Tranches
+  owner: TBD
+  status: active
+  requires:
+  - fact_clo_collateral_position
+  - agg_clo_cohort_default
+  - dim_clo_tranche
+  - fact_clo_tranche_cashflow
+  - fact_clo_manager_report
+  - fact_clo_default_event
+  - fact_clo_recovery_event
+  - scenario_clo_stress
+  fidelity:
+    fact_clo_collateral_position: scenario
+    agg_clo_cohort_default: scenario
+    dim_clo_tranche: scenario
+    fact_clo_tranche_cashflow: scenario
+    fact_clo_manager_report: scenario
+    fact_clo_default_event: scenario
+    fact_clo_recovery_event: scenario
+    scenario_clo_stress: scenario
+  critical_dependencies:
+  - cohort default-rate dispersion must map coherently into a one-factor rho estimate
+  - collateral loss must map pathwise into tranche-specific principal loss
+  - the public build must remain self-contained and synthetic-safe, while the local live runtime may map Intex or Trepp-style exports into the shared CLO contract outside repo only
+  - committed live artifacts must remain summary-safe tables, markdown snippets, and static rendered figures rather than row-level licensed extracts
+- chapter_id: eth_staking_regime_switching
+  name: Ethereum as a Long-Duration Asset
+  owner: TBD
+  status: active
+  requires: []
+  fidelity: {}
+  critical_dependencies:
+  - the public example remains self-contained and synthetic until a shared crypto scenario pack is explicitly registered
+  - the implementation must preserve a matched-exposure comparison between spot ETH and staked ETH rather than turning into a directional price-forecasting exercise
+  - regime persistence, carry, liquidity haircuts, and tail losses must remain separately stressable in the public outputs
+- chapter_id: anchor_purification
+  name: Anchor Purification
+  owner: TBD
+  status: active
+  requires:
+  - panel_equity_factor_research_monthly
+  fidelity:
+    panel_equity_factor_research_monthly: scenario
+  critical_dependencies:
+  - the public example remains self-contained and synthetic, while live mode maps a licensed monthly predictor panel or exported vendor descriptors into the same chapter-local asset-panel contract at runtime only
+  - intuitive and purified strategies must use the same FMP sleeve span, rebalance dates, target-volatility scaling rule, and turnover-cost model
+  - purified-space weights must be mapped back into tradable sleeve coordinates with the documented transpose mapping rather than a fresh sleeve-space optimization
+  - Cholesky ordering sensitivity and MLT order invariance must remain visible in the educational outputs
+  - live artifacts committed under the example path stay limited to static rendered figures and run metadata; machine-readable live outputs remain local-only
+- chapter_id: bond_refunding_paper
+  name: Bonds Refunding Paper
+  owner: TBD
+  status: active
+  requires:
+  - event_treasury_refunding
+  - panel_treasury_fixed_term_daily
+  - panel_etf_price_daily_live
+  - panel_etf_bar_1m_live
+  - fact_macro_observation
+  fidelity:
+    event_treasury_refunding: public
+    panel_treasury_fixed_term_daily: licensed
+    panel_etf_price_daily_live: licensed
+    panel_etf_bar_1m_live: licensed
+    fact_macro_observation: public
+  critical_dependencies:
+  - the public example remains self-contained and synthetic, while the local empirical runtime may read public Treasury and Fed calendars plus licensed CRSP and FirstRate inputs outside the repo only
+  - Strategy A and matched placebo windows must preserve the same instrument, window length, cost model, and sizing rule so only timing differs
+  - mapping tables, placebo calendars, and stress outputs must remain saved public artifacts
+  - empirical outputs generated from local licensed inputs must remain local-only artifacts even when they are written under the chapter example path
+- chapter_id: ohlc_implied_bid_ask_spread
+  name: Estimating Market Impact with Bar Data OHLCV Impact
+  owner: TBD
+  status: active
+  requires:
+  - panel_ohlc_bid_ask_daily
+  fidelity:
+    panel_ohlc_bid_ask_daily: scenario
+  critical_dependencies:
+  - daily OHLC geometry must remain internally coherent
+  - spread and volatility proxies should move together across simple liquidity states
+- chapter_id: bar_implied_market_impact
+  name: Estimating Market Impact with Bar Data Efficient VWAP
+  owner: TBD
+  status: active
+  requires:
+  - fact_bar_1m
+  - fact_parent_order_request
+  fidelity:
+    fact_bar_1m: scenario
+    fact_parent_order_request: scenario
+  critical_dependencies:
+  - parent-order assumptions must remain plausible relative to minute-bar volume
+  - execution windows and sides must align with the intraday bar calendar
+- chapter_id: liquidity_aware_order_scheduling
+  name: Liquidity-Aware Order Scheduling and Slippage Control
+  owner: TBD
+  status: active
+  requires:
+  - fact_bar_1m
+  - fact_parent_order_request
+  fidelity:
+    fact_bar_1m: scenario
+    fact_parent_order_request: scenario
+  critical_dependencies:
+  - static and adaptive schedules must preserve the same parent order, benchmark, horizon, cap regime, and paired market-state paths so only control logic differs
+  - implementation-shortfall decomposition, completion outcomes, and guardrail diagnostics must be computed from one shared accounting layer
+  - local live runs may read private FirstRate minute bars outside repo, but committed artifacts must remain limited to code, summary tables, and static rendered figures
+- chapter_id: gamma_imbalance_backtest
+  name: "Options Momentum & Gamma Imbalance: Gamma Imbalance Backtest"
+  owner: TBD
+  status: active
+  requires:
+  - panel_gamma_paper_backtest_daily
+  fidelity:
+    panel_gamma_paper_backtest_daily: scenario
+  critical_dependencies:
+  - point-in-time membership and lagged scale must stay aligned with stock-day windows
+  - paper return windows must remain arithmetically consistent
+- chapter_id: gamma_imbalance_improvement
+  name: "Options Momentum & Gamma Imbalance: Gamma Imbalance Improvement"
+  owner: TBD
+  status: active
+  requires:
+  - panel_gamma_paper_backtest_daily
+  - fact_option_gamma_pair_daily
+  fidelity:
+    panel_gamma_paper_backtest_daily: scenario
+    fact_option_gamma_pair_daily: scenario
+  critical_dependencies:
+  - pair-level option gamma rows must aggregate coherently into daily conditioning states
+  - enhancement tests must remain anchored to the same baseline backtest panel
+- chapter_id: ceasefire_implied_uso
+  name: Implied Ceasefire Timing from USO Options
+  owner: TBD
+  status: active
+  requires:
+  - dim_security
+  - dim_future_contract
+  - fact_futures_price_daily
+  - fact_futures_bar_1m
+  - fact_option_surface_eod
+  - agg_curve_daily
+  - event_market_regime
+  fidelity:
+    fact_futures_price_daily: scenario
+    fact_option_surface_eod: scenario
+    event_market_regime: scenario
+  critical_dependencies:
+  - spot -> futures curve -> implied vol/skew
+  - event regime -> volatility and term structure
+- chapter_id: conformal_prediction
+  name: Conformal Prediction
+  owner: TBD
+  status: active
+  requires:
+  - fact_equity_price_daily
+  - fact_macro_observation
+  fidelity:
+    fact_equity_price_daily: scenario
+    fact_macro_observation: public
+  critical_dependencies:
+  - the conformal overlay must wrap the same one-step point forecast, cost model, flat-period convention, and stress suite as the baseline policy
+  - the local live path may read the private multi-asset daily workbook outside repo only, while committed artifacts remain limited to code, summary tables, markdown snippets, and static rendered figures
+  - the public fallback must remain a synthetic or scenario panel that preserves interval calibration, coverage monitoring, and alarm semantics without storing licensed rows
+- chapter_id: advanced_clustering
+  name: Strategy and Asset Class Clustering with UMAP and HDBSCAN
+  owner: TBD
+  status: active
+  requires:
+  - panel_equity_cluster_monthly
+  fidelity:
+    panel_equity_cluster_monthly: scenario
+  critical_dependencies:
+  - mixed numeric, categorical, and text feature blocks must align by security-month
+  - point-in-time market, descriptor, fundamental, and segment signals must remain coherent
+  - missingness and regime drift must be informative rather than random noise
+- chapter_id: ic_optimization
+  name: IC Optimization
+  owner: TBD
+  status: active
+  requires: []
+  fidelity: {}
+  critical_dependencies:
+  - the first runnable build remains chapter-local because the live path joins local CRSP daily history to Chapter 12 ESG timetables and benchmark-membership archives outside repo only
+  - baseline, soft-ESG, and hard-floor policies must share the same benchmark mapping, signal construction, risk model, costs, and feasibility set so only the ESG encoding changes
+  - the public sample path must stay synthetic and benchmark-relative until a reusable monthly active-equity panel is explicitly registered
+  - live mode may write only summary-safe tables and static rendered figures into the example tree; raw filtered live caches stay outside repo
+- chapter_id: dcc
+  name: Copulas and GANs for Synthetic Financial Time Series Data
+  owner: TBD
+  status: active
+  requires:
+  - fact_equity_price_daily
+  - agg_realized_vol_daily
+  - fact_macro_observation
+  fidelity:
+    fact_equity_price_daily: scenario
+    agg_realized_vol_daily: scenario
+  critical_dependencies:
+  - time-varying covariance
+  - volatility clustering and heavy tails
+- chapter_id: polymarket_collateralized_lending
+  name: Polymarket Collateralized Lending
+  owner: TBD
+  status: active
+  requires:
+  - dim_prediction_market
+  - dim_prediction_token
+  - fact_prediction_position_snapshot
+  - fact_prediction_orderbook_snapshot
+  fidelity:
+    dim_prediction_market: pseudo
+    dim_prediction_token: pseudo
+    fact_prediction_position_snapshot: pseudo
+    fact_prediction_orderbook_snapshot: pseudo
+  critical_dependencies:
+  - market/question/condition and YES/NO token pairing must remain explicit
+  - borrower positions and orderbooks must join to the same token/market snapshot
+  - orderbook depth and volume proxy must preserve liquidation-at-size and within-alpha capacity semantics
+- chapter_id: pe_vc_hazard
+  name: VC & PE Exit Prediction
+  owner: TBD
+  status: active
+  requires:
+  - dim_private_company
+  - dim_fund
+  - fact_private_round
+  - fact_private_investor_participation
+  - fact_private_exit
+  - event_market_regime
+  fidelity:
+    fact_private_round: scenario
+    fact_private_exit: scenario
+    event_market_regime: scenario
+  critical_dependencies:
+  - company-quarter rows must respect end-of-quarter observable information
+  - route-aware exits must preserve timing, censoring, and sponsor-sale linkage
+  - company, investor, and fund histories remain linked when the richer feature layer is added
+- chapter_id: corporate_bond_liquidity
+  name: Corporate Bond Liquidity / TRACE-FISD
+  owner: TBD
+  status: planned
+  requires:
+  - dim_bond_issue
+  - fact_bond_trade
+  - fact_bond_quote
+  - fact_macro_observation
+  fidelity:
+    fact_bond_trade: scenario
+    fact_bond_quote: scenario
+  critical_dependencies:
+  - issue master -> trade and quote linkage
+  - liquidity measures depend on trade timing and spread structure
+- chapter_id: treasury_microstructure
+  name: Treasury Microstructure / GovPX
+  owner: TBD
+  status: planned
+  requires:
+  - fact_rate_curve_node
+  - agg_curve_daily
+  - event_market_regime
+  fidelity:
+    fact_rate_curve_node: scenario
+    agg_curve_daily: scenario
+  critical_dependencies:
+  - curve nodes must reconcile to curve-level summaries
+  - event timing must align with intraday and term-structure states
+- chapter_id: fund_holdings_morningstar
+  name: Fund Holdings / Morningstar
+  owner: TBD
+  status: planned
+  requires:
+  - dim_fund
+  - fact_fund_holding
+  - fact_fund_flow
+  - dim_security
+  fidelity:
+    fact_fund_holding: scenario
+    fact_fund_flow: scenario
+  critical_dependencies:
+  - fund-to-security linkage remains stable
+  - holdings, flows, and security reference data stay consistent
+- chapter_id: householding_external_assets
+  name: Cash Inflows and Outflows; Householding and External Assets
+  owner: TBD
+  status: active
+  requires:
+  - accounts
+  - holdings
+  - cash_ledger
+  - transactions
+  - tax_lots
+  - external_marks
+  - external_cash_flows
+  - factor_or_asset_returns
+  - classification_rules
+  fidelity:
+    accounts: scenario
+    holdings: scenario
+    cash_ledger: scenario
+    transactions: scenario
+    tax_lots: scenario
+    external_marks: scenario
+    external_cash_flows: scenario
+    factor_or_asset_returns: scenario
+    classification_rules: pseudo
+  critical_dependencies:
+  - household boundary flows and internal transfers must be separately classified so the transfer-netting identity holds exactly
+  - TWR and household money-weighted returns must be computed from the same reconciled ledger with explicit timing conventions
+  - sparse external marks must remain sparse observations with uncertainty widening between marks
+  - Policy A and Policy B must preserve matched aggregate tradable exposure and report any residual drift as a decision risk
+- chapter_id: factors_vs_features_quant_shop
+  name: Factors vs Features in a Quant Shop
+  owner: TBD
+  status: active
+  requires:
+  - fact_equity_price_daily
+  - agg_liquidity_daily
+  fidelity:
+    fact_equity_price_daily: scenario
+    agg_liquidity_daily: scenario
+  critical_dependencies:
+  - the first runnable public build remains a self-contained Python companion with a synthetic fallback, while the local live path may rebuild a weekly cross-sectional panel from local CRSP daily history outside repo only
+  - the same candidate signal must be compared as a standalone sleeve and as a feature inside the forecasting stack under one shared baseline, one shared information set, one shared accounting engine, and one shared stress suite
+  - neutralization language, risk budgets, turnover throttles, and liquidity caps must remain symmetric across the sleeve and feature arms so only the representation of the idea changes
+  - committed artifacts from the live path must remain limited to summary-safe tables, decision notes, and static rendered figures; raw licensed rows and machine-readable live panels remain local-only
+- chapter_id: ml_equity_alpha_pipeline
+  name: Machine-Learning Equity Alpha Pipeline
+  owner: TBD
+  status: active
+  requires:
+  - fact_equity_price_daily
+  - agg_liquidity_daily
+  - fact_fundamental_period
+  fidelity:
+    fact_equity_price_daily: scenario
+    agg_liquidity_daily: scenario
+    fact_fundamental_period: scenario
+  critical_dependencies:
+  - the first runnable public build remains a self-contained Python companion with a synthetic fallback, while the local live path may rebuild a bounded daily equity panel from local CRSP and Compustat history outside repo only
+  - the linear and nonlinear forecast arms must share the same universe, horizons, cost model, optimizer, and accounting layer so only the forecasting stack changes
+  - the point-in-time availability contract for quarterly fundamentals must remain explicit and conservative, with disclosed fallback lags whenever report dates are missing
+  - committed artifacts from the live path must remain limited to summary-safe tables, staged markdown snippets, and static rendered figures; raw licensed rows and machine-readable live panels remain local-only
+- chapter_id: tax_aware_objective
+  name: Tax-Aware Objective, Timing, Netting, and Householding
+  owner: TBD
+  status: active
+  requires:
+  - fact_equity_price_daily
+  - dim_household_account
+  - fact_household_flow
+  - fact_distribution_event
+  - map_wash_group
+  - map_substitute_candidate
+  - fact_tax_lot
+  - fact_tax_realization_event
+  - fact_wash_sale_adjustment
+  - fact_account_tax_payment
+  fidelity:
+    fact_equity_price_daily: scenario
+    fact_distribution_event: scenario
+    fact_tax_lot: scenario
+    fact_tax_realization_event: scenario
+    fact_wash_sale_adjustment: scenario
+    fact_account_tax_payment: scenario
+  critical_dependencies:
+  - Strategy A and Strategy B must preserve the same intended sleeve exposure, rebalance dates, cash handling, and cost model so only lot choice, replacements, timing, and household routing differ
+  - year-level ST/LT netting, carryforwards, and terminal liquidation taxes must remain explicit outputs rather than notebook-local adjustments
+  - household-aware wash-sale deferral and IRA or Roth forfeiture paths must stay logged at the same tax-return-group boundary as the gains they offset
+  - local live runs may read FirstRate ETF minute bars outside repo, but committed artifacts remain limited to code, summary tables, markdown snippets, and static rendered figures
+- chapter_id: pe_vs_public_cornish_fisher
+  name: Comparing Private Equity to Public Equity with the Cornish Fischer Expansion
+  owner: TBD
+  status: active
+  requires: []
+  fidelity: {}
+  critical_dependencies:
+  - the public example remains self-contained and synthetic, while the local live runtime may read WRDS Preqin cash-flow/value exports, a private Bloomberg-style multi-asset workbook, and public FRED cash-rate history outside repo only
+  - Strategy A and the matched public benchmark must preserve the same quarterly LP cash-flow schedule, timing convention, and funding-account rule so only the return process changes
+  - reported PE and de-smoothed PE diagnostics must remain side-by-side outputs so the chapter keeps the measurement illusion visible
+  - committed outputs must stay at the summary-table and static-figure level; row-level licensed histories and vendor identifiers remain local-only artifacts
+- chapter_id: p_hacking_deflated_sharpe_ratio
+  name: P-Hacking and the Deflated Sharpe Ratio
+  owner: TBD
+  status: active
+  requires: []
+  fidelity: {}
+  critical_dependencies:
+  - the public example remains self-contained and synthetic, while the local live runtime may derive a bounded candidate search from the private multi-asset daily workbook outside repo only
+  - the selected strategy, benchmark, and any residualized excess-return series must share one cost-adjusted accounting object so DSR and deployment risk stay comparable
+  - "`N_eff`, `T_eff`, the luck threshold, and the named stresses must remain visible publication artifacts rather than notebook-local side effects"
+  - committed outputs must stay at the summary-table and static-figure level; row-level licensed histories and machine-readable live extracts remain local-only artifacts
+- chapter_id: in_house_private_equity
+  name: In-House Private Equity Platform
+  owner: TBD
+  status: active
+  requires: []
+  fidelity: {}
+  critical_dependencies:
+  - the first runnable public build remains chapter-local and synthetic-safe until reusable private-markets operating-model tables are explicitly registered
+  - local live mode may read WRDS Preqin benchmark, fund-term, cash-flow, and buyout-deal files plus local Crunchbase company, round, acquisition, and IPO exports outside the repo only
+  - committed live artifacts must stay limited to summary-safe tables, markdown snippets, and static rendered figures rather than row-level licensed extracts
+  - the cost-replacement engine, break-even allocation curve, lane-mix uplift surface, J-curve pacing view, gate dashboard, and PERT milestone probabilities must remain separate audit objects
+- chapter_id: flow_positioning_hft
+  name: Flow and Positioning-Based Factor Forecasts for High Frequency Trading (HFT)
+  owner: TBD
+  status: active
+  requires: []
+  fidelity: {}
+  critical_dependencies:
+  - the first runnable public build remains a self-contained synthetic-safe TAQ market-making harness until a reusable TAQ microstructure-state table is explicitly registered
+  - local live mode may read the quote-aware WRDS NYSE ICE TAQ symbol-day panel outside the repo only and may derive a liquid-universe fragility state from spreads, depth, order-flow imbalance, price impact, and intraday volatility
+  - Strategy A, Strategy B, and the turnover-matched placebo must share the same baseline inventory-budget engine, turnover caps, cost model, and accounting layer so only the TAQ fragility overlay differs
+  - observable session-close timestamps plus stale-state delay diagnostics must define the tradable control state, and the liquidity-freeze / volatility-jump / convex-slippage stresses must remain first-class outputs
+  - committed artifacts must remain limited to code, summary-safe tables, staged markdown, and static rendered figures; row-level licensed TAQ extracts and machine-readable live caches remain local-only

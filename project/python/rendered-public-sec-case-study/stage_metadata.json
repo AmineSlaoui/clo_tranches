@@ -1,0 +1,42 @@
+{
+  "route": "public_bdc_clo_case_study",
+  "route_argument": "public_bdc_clo_case_study",
+  "deal_id": "PALMER_SQUARE_BDC_CLO_1",
+  "pack_label": "public",
+  "default_source_family": "public_deal_docs",
+  "as_of_date": "2025-12-31",
+  "source_urls": [
+    "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea0206724-8k_palmersquare.htm",
+    "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea020672401ex10-2_palmer.htm",
+    "https://www.sec.gov/Archives/edgar/data/1794776/000119312526073362/psbd-20251231.htm"
+  ],
+  "raw_inputs": {
+    "tranche_export": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\raw\\public_tranche_export.csv",
+    "collateral_export": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\raw\\public_collateral_export.csv",
+    "cohort_export": null,
+    "manager_export": null,
+    "default_export": null,
+    "recovery_export": null,
+    "cashflow_export": null,
+    "stress_export": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\raw\\public_stress_export.csv",
+    "field_dictionary_export": null
+  },
+  "rho_inputs": {
+    "base_rho": null,
+    "low_rho": null,
+    "high_rho": null,
+    "low_pd_multiplier": 1.0,
+    "high_pd_multiplier": 1.0,
+    "low_cpr_multiplier": 1.0,
+    "high_cpr_multiplier": 1.0,
+    "low_lgd_addon": 0.0,
+    "high_lgd_addon": 0.0,
+    "discount_rate": 0.04
+  },
+  "output_files": [
+    "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\live_contract\\fact_clo_collateral_position.csv",
+    "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\live_contract\\dim_clo_tranche.csv",
+    "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\live_contract\\scenario_clo_stress.csv"
+  ],
+  "field_dictionary_path": null
+}

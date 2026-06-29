@@ -1,0 +1,82 @@
+{
+  "commands": {
+    "private_or_internal": [
+      [
+        "C:\\ProgramData\\anaconda3\\python.exe",
+        "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\run_example.py",
+        "--output-dir",
+        "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\outputs\\notebook_private",
+        "--live-root"
+      ]
+    ],
+    "public_or_sample": [
+      [
+        "C:\\ProgramData\\anaconda3\\python.exe",
+        "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\run_example.py",
+        "--output-dir",
+        "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\outputs\\notebook_public"
+      ]
+    ]
+  },
+  "generated_at_utc": "2026-06-02T13:49:14.561733+00:00",
+  "included_files": [
+    {
+      "archive_path": "L3_4_1_Correlation_and_Tail_Risk_in_CLO_Tranches/manifests/L3_4_1_clo_tail_risk.file_manifest.json",
+      "bytes": 3223,
+      "compression": "deflated",
+      "role": "distribution_file_manifest",
+      "source_path": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\notebooks\\L3_4_1_clo_tail_risk.file_manifest.json"
+    },
+    {
+      "archive_path": "L3_4_1_Correlation_and_Tail_Risk_in_CLO_Tranches/project/run_example.py",
+      "bytes": 1217,
+      "compression": "deflated",
+      "role": "command_referenced_source|entrypoint",
+      "source_path": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\run_example.py"
+    },
+    {
+      "archive_path": "L3_4_1_Correlation_and_Tail_Risk_in_CLO_Tranches/project/notebooks/L3_4_1_clo_tail_risk.ipynb",
+      "bytes": 549571,
+      "compression": "deflated",
+      "role": "notebook",
+      "source_path": "C:\\Users\\Razer16User\\Downloads\\temp-zip-test\\run_20260604_124659\\ex_4_1\\logs\\executed_notebooks\\L3_4_1_clo_tail_risk.executed.ipynb",
+      "notebook_state": "executed_with_outputs"
+    },
+    {
+      "role": "internal_code_data_package",
+      "source_path": "D:\\dev\\ECR Capital Management\\Book2\\zip_for_4700\\_corrected_payloads\\4.1_corrected_internal_code_and_data.zip",
+      "archive_path": "L3_4_1_Correlation_and_Tail_Risk_in_CLO_Tranches/internal_code_data_package/4.1_corrected_internal_code_and_data.zip",
+      "bytes": 3464336,
+      "note": "Corrected package built after clean-room zip testing.",
+      "copyright_headers_added": true
+    }
+  ],
+  "manifest_version": "2026-06-02.zip-for-4700.v1",
+  "num": "4.1",
+  "output_zip": "D:\\dev\\ECR Capital Management\\Book2\\zip_for_4700\\L3_4_1_Correlation_and_Tail_Risk_in_CLO_Tranches_distribution.zip",
+  "packaging_policy": "Includes the canonical notebook, its adjacent file manifest, project code files listed by that manifest, and the per-project internal code/data package zip. Broad vendor roots and duplicate raw private files are recorded here rather than expanded into the wrapper zip.",
+  "project": "Correlation and Tail Risk in CLO Tranches",
+  "represented_required_directories": [
+    {
+      "exists": true,
+      "kind": "directory",
+      "packaging_status": "context_directory_not_copied",
+      "path": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches",
+      "required": true,
+      "role": "project_root"
+    }
+  ],
+  "represented_required_files": [],
+  "required_environment_variables": [
+    "BOOK2_CLO_LIVE_ROOT"
+  ],
+  "source_file_manifest": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\notebooks\\L3_4_1_clo_tail_risk.file_manifest.json",
+  "source_notebook": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\notebooks\\L3_4_1_clo_tail_risk.ipynb",
+  "corrected_at_utc": "2026-06-02T17:25:56.173072+00:00",
+  "correction_notes": "Bloomberg CLO rows are recipient-supplied; package includes templates and staging workflow.",
+  "updated_at_utc": "2026-06-04T17:21:43.578160+00:00",
+  "packaging_updates_20260604": {
+    "copyright_statement": "(c) 2027, Michael Robbins",
+    "notebooks": "Notebook entries were replaced with executed notebooks produced by clean-room validation."
+  }
+}

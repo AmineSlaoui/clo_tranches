@@ -1,0 +1,6 @@
+metric,value,unit
+weighted_model_price,98.52178613583425,price per 100 par
+weighted_market_price,98.56205809259362,price per 100 par
+weighted_price_gap,-0.04027195675936537,model minus market price
+weighted_expected_loss,0.9185356877010807,annual percent
+loan_count,400.0,loans

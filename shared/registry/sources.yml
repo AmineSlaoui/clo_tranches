@@ -1,0 +1,273 @@
+sources:
+- source_id: wrds_crsp
+  name: WRDS CRSP / CRSP-Compustat
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/CRSP
+  primary_use:
+  - entity and identifier linkage
+  - daily equity prices
+  - delistings and distributions
+  - monthly equity panels
+  feeds_modules:
+  - entity_identifier_master
+  - corporate_actions_listing
+  - equity_daily
+  - ohlc_implied_spread
+  - gamma_paper_reversal
+  - gamma_signal_enhancement
+  - equity_monthly_predictors
+- source_id: wrds_financial_ratios_firm_level
+  name: WRDS Financial Ratios: Firm Level
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/Finratio
+  primary_use:
+  - monthly point-in-time firm characteristic panels
+  - PIT-safe ratio snapshots keyed by public_date
+  - Chapter 5 archival-data live rerenders
+  feeds_modules:
+  - fundamentals_pti
+  - equity_monthly_predictors
+- source_id: compustat_local_book2_mat
+  name: Local Book2 Compustat MAT export
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: Book2/Compustat_North_America_Quarterly_Fundamentals.mat
+  primary_use:
+  - quarterly fundamentals proxies for chapter-local live rerenders
+  - local feature engineering outside the public repo
+  feeds_modules:
+  - fundamentals_pti
+  - equity_monthly_predictors
+- source_id: clustering_local_exports
+  name: Local clustering monthly exports
+  classification: licensed
+  local_reference_root: clustering_working_code
+  local_reference_subpath: cleaned
+  primary_use:
+  - chapter-local monthly descriptor panels
+  - theme and cross-sectional feature research
+  feeds_modules:
+  - equity_monthly_predictors
+- source_id: axioma_exports
+  name: Axioma local risk-model exports
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: Axioma
+  primary_use:
+  - factor descriptors
+  - pure factor sleeve exports
+  - factor covariance and benchmark audit files
+  feeds_modules:
+  - equity_monthly_predictors
+- source_id: barra_exports
+  name: MSCI Barra local risk-model exports
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: Barra
+  primary_use:
+  - factor descriptors
+  - pure factor sleeve exports
+  - factor covariance and benchmark audit files
+  feeds_modules:
+  - equity_monthly_predictors
+- source_id: wrds_optionmetrics
+  name: WRDS OptionMetrics
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/Optionmetrics
+  primary_use:
+  - options contract linkage
+  - options EOD chains
+  - implied-volatility surface construction
+  feeds_modules:
+  - options_contracts
+  - options_eod_surface
+  - gamma_signal_enhancement
+- source_id: firstrate
+  name: FirstRate intraday bars
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: FirstRate
+  primary_use:
+  - intraday bars
+  - realized volatility
+  - intraday liquidity
+  feeds_modules:
+  - intraday_bars
+  - gamma_paper_reversal
+- source_id: wrds_taq
+  name: WRDS NYSE ICE TAQ
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/NYSE ICE TAQ
+  primary_use:
+  - market microstructure
+  - intraday quote and trade research
+  feeds_modules:
+  - intraday_bars
+  - events_regimes
+- source_id: wrds_trace
+  name: WRDS TRACE
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/TRACE
+  primary_use:
+  - corporate bond trades
+  feeds_modules:
+  - bonds_trades_quotes
+- source_id: wrds_msrb
+  name: WRDS MSRB
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/MSRB
+  primary_use:
+  - municipal bond reference and trade data
+  feeds_modules:
+  - bonds_trades_quotes
+- source_id: wrds_preqin
+  name: WRDS Preqin
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/Preqin
+  primary_use:
+  - private markets
+  - fund and investor histories
+  feeds_modules:
+  - private_markets
+  - funds_holdings
+- source_id: wrds_datastream
+  name: WRDS LSEG Datastream
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/LSEG Datastream
+  primary_use:
+  - futures and commodity data
+  - macro and rates time series
+  feeds_modules:
+  - futures_commodity
+  - rates_curves_macro
+- source_id: bloomberg_exports
+  name: Bloomberg local exports
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: Bloomberg
+  primary_use:
+  - workbook refreshes
+  - ESG and multi-asset reference exports
+  feeds_modules:
+  - equity_daily
+  - esg
+  - rates_curves_macro
+- source_id: lseg_exports
+  name: Local LSEG exports
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: LSEG
+  primary_use:
+  - macro lookups
+  - commodity and index files
+  feeds_modules:
+  - futures_commodity
+  - rates_curves_macro
+- source_id: crunchbase_exports
+  name: CrunchBase local exports
+  classification: licensed
+  local_reference_root: licensed_data_root
+  local_reference_subpath: CrunchBase
+  primary_use:
+  - startup and investor histories
+  feeds_modules:
+  - private_markets
+- source_id: federal_reserve_public
+  name: Federal Reserve / FRED series
+  classification: public
+  local_reference_root: licensed_data_root
+  local_reference_subpath: WRDS/Federal Resesrve Board
+  primary_use:
+  - open macro and rates series
+  feeds_modules:
+  - rates_curves_macro
+- source_id: alfred_public_vintages
+  name: ALFRED real-time vintage macro series
+  classification: public
+  local_reference_root: licensed_data_root
+  local_reference_subpath: private/archival_pit
+  primary_use:
+  - macro real-time vintage histories
+  - Chapter 5 PIT macro annexes
+  feeds_modules:
+  - rates_curves_macro
+  - fundamentals_pti
+- source_id: yahoo_archive
+  name: Local Yahoo archive snapshots
+  classification: public
+  local_reference_root: ceasefire_working_code
+  local_reference_subpath: archived_snapshots
+  primary_use:
+  - archived USO history and options snapshots
+  feeds_modules:
+  - futures_commodity
+  - events_regimes
+- source_id: polymarket_archive
+  name: Local Polymarket archive snapshots
+  classification: public
+  local_reference_root: ceasefire_working_code
+  local_reference_subpath: archived_snapshots
+  primary_use:
+  - event timing and implied ceasefire probability proxies
+  feeds_modules:
+  - events_regimes
+- source_id: polymarket_open_api
+  name: Polymarket open APIs
+  classification: public
+  local_reference_root: gondor_working_code
+  local_reference_subpath: .
+  primary_use:
+  - live prediction-market positions
+  - live market metadata and orderbooks
+  - public live reruns for Polymarket collateralized lending
+  feeds_modules:
+  - prediction_markets
+- source_id: dome_api
+  name: Dome API
+  classification: licensed
+  local_reference_root: gondor_working_code
+  local_reference_subpath: .
+  primary_use:
+  - borrower handle resolution
+  - optional historical orderbook reconciliation
+  - licensed supplemental snapshot access for Polymarket collateralized lending
+  feeds_modules:
+  - prediction_markets
+- source_id: local_workbook_archive
+  name: Chapter workbook and image archive
+  classification: licensed
+  local_reference_root: ceasefire_working_code
+  local_reference_subpath: .
+  primary_use:
+  - packaged workbook extracts for current ceasefire workflow
+  feeds_modules:
+  - futures_commodity
+  - options_eod_surface
+- source_id: dealer_structured_note_archive
+  name: Internal dealer structured-note archive
+  classification: licensed
+  local_reference_root: dealer_structured_note_root
+  local_reference_subpath: .
+  primary_use:
+  - note issue terms and financing terms
+  - barrier definitions and recovery terms
+  - issuance history and payout monitoring
+  feeds_modules: []
+- source_id: ice_pricing_analytics_structured_notes
+  name: ICE Pricing Data & Analytics structured-note extracts
+  classification: licensed
+  local_reference_root: ice_structured_note_root
+  local_reference_subpath: .
+  primary_use:
+  - reference pricing and valuation cross-checks
+  - financing curves and supporting market context
+  - secondary monitoring for note status and payout reconciliation
+  feeds_modules: []

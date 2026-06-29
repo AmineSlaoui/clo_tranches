@@ -1,0 +1,81 @@
+{
+  "source_mode": "public_sec_case_study",
+  "retrieval_method": "edgar_direct",
+  "case_study": "palmer_square_bdc_clo_1",
+  "deal_id": "PALMER_SQUARE_BDC_CLO_1",
+  "cik": "0001794776",
+  "as_of_date": "2025-12-31",
+  "sources": {
+    "note_source": "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea0206724-8k_palmersquare.htm",
+    "indenture_source": "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea020672401ex10-2_palmer.htm",
+    "collateral_source": "https://www.sec.gov/Archives/edgar/data/1794776/000119312526073362/psbd-20251231.htm",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea0206724-8k_palmersquare.htm",
+      "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea020672401ex10-2_palmer.htm",
+      "https://www.sec.gov/Archives/edgar/data/1794776/000119312526073362/psbd-20251231.htm"
+    ]
+  },
+  "resolved_documents": {
+    "note": {
+      "retrieval_method": "edgar_direct",
+      "source": "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea0206724-8k_palmersquare.htm",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea0206724-8k_palmersquare.htm",
+      "document_url": "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea0206724-8k_palmersquare.htm",
+      "cik": "0001794776",
+      "accession": "0001213900-24-046305",
+      "filing_date": "2024-05-23",
+      "filing_form": "8-K",
+      "document_name": "ea0206724-8k_palmersquare.htm"
+    },
+    "indenture": {
+      "retrieval_method": "edgar_direct",
+      "source": "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea020672401ex10-2_palmer.htm",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea0206724-8k_palmersquare.htm",
+      "document_url": "https://www.sec.gov/Archives/edgar/data/1794776/000121390024046305/ea020672401ex10-2_palmer.htm",
+      "cik": "0001794776",
+      "accession": "0001213900-24-046305",
+      "filing_date": "2024-05-23",
+      "filing_form": "8-K",
+      "document_name": "ea020672401ex10-2_palmer.htm"
+    },
+    "collateral": {
+      "retrieval_method": "edgar_direct",
+      "source": "https://www.sec.gov/Archives/edgar/data/1794776/000119312526073362/psbd-20251231.htm",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1794776/000119312526073362/psbd-20251231.htm",
+      "document_url": "https://www.sec.gov/Archives/edgar/data/1794776/000119312526073362/psbd-20251231.htm",
+      "cik": "0001794776",
+      "accession": "0001193125-26-073362",
+      "filing_date": "2026-02-26",
+      "filing_form": "10-K",
+      "document_name": "psbd-20251231.htm"
+    }
+  },
+  "assumptions": {
+    "assumptions_export": null,
+    "default_annual_pd": 0.02,
+    "default_annual_cpr": 0.04,
+    "default_lgd": 0.6
+  },
+  "disclosures": {
+    "rho_overlay": "Low/high rho values remain analyst overlays because the public SEC case study does not provide a reusable cohort-default panel.",
+    "pd_cpr_lgd_overlays": "PD, CPR, and LGD remain analyst overlays unless an assumptions export is supplied.",
+    "subordinated_trigger_proxy": "The subordinated-note trigger remains a proxy warning level; Class A and Class B warning levels are derived from the indenture's required overcollateralization ratio when available."
+  },
+  "requested_accessions": {
+    "note": "0001213900-24-046305",
+    "indenture": "0001213900-24-046305",
+    "collateral": "0001193125-26-073362"
+  },
+  "trigger_sources": {
+    "Class A Notes": "parsed_required_oc_ratio_1.253300",
+    "Class B-1 Notes": "parsed_required_oc_ratio_1.253300",
+    "Class B-2 Notes": "parsed_required_oc_ratio_1.253300",
+    "Subordinated Notes": "proxy_half_of_next_senior_warning_level"
+  },
+  "collateral_footnote_marker": "8",
+  "written_files": {
+    "tranche_export": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\raw\\public_tranche_export.csv",
+    "collateral_export": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\raw\\public_collateral_export.csv",
+    "stress_export": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\raw\\public_stress_export.csv"
+  }
+}

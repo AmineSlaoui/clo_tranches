@@ -1,0 +1,91 @@
+{
+  "data_mode": "live",
+  "calibration_mode": "scenario_explicit_rho",
+  "seed": 42,
+  "num_paths": 25000,
+  "horizon_years": 5,
+  "discount_rate": 0.04,
+  "output_root": "repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\rendered-public-sec-case-study",
+  "required_live_tables": [
+    "fact_clo_collateral_position",
+    "dim_clo_tranche",
+    "scenario_clo_stress"
+  ],
+  "optional_live_tables": [
+    "agg_clo_cohort_default",
+    "fact_clo_tranche_cashflow",
+    "fact_clo_manager_report",
+    "fact_clo_default_event",
+    "fact_clo_recovery_event"
+  ],
+  "source_metadata": {
+    "pack_label": "public",
+    "source_mode": "public_sec_case_study",
+    "fidelity_mode": "market_observed",
+    "calibration_mode": "scenario_explicit_rho",
+    "deal_id": "PALMER_SQUARE_BDC_CLO_1",
+    "live_root": "repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\python\\tmp_public_case_live_run\\live_contract",
+    "template_root": "D:\\dev\\ECR Capital Management\\Book2\\repo\\examples\\Chapter 4\\Correlation and Tail Risk in CLO Tranches\\live_contract_template",
+    "source_families": [
+      "public_deal_docs"
+    ],
+    "row_counts": {
+      "agg_clo_cohort_default": 0,
+      "fact_clo_collateral_position": 21,
+      "dim_clo_tranche": 4,
+      "fact_clo_tranche_cashflow": 0,
+      "fact_clo_manager_report": 0,
+      "fact_clo_default_event": 0,
+      "fact_clo_recovery_event": 0,
+      "scenario_clo_stress": 2
+    },
+    "available_tables": [
+      "dim_clo_tranche",
+      "fact_clo_collateral_position",
+      "scenario_clo_stress"
+    ],
+    "disclosures": {
+      "rho_overlay": "Low/high rho values remain analyst overlays because the public SEC case study does not provide a reusable cohort-default panel.",
+      "pd_cpr_lgd_overlays": "PD, CPR, and LGD remain analyst overlays unless a separate assumptions export is supplied.",
+      "subordinated_trigger_proxy": "The subordinated-note trigger remains a proxy warning level; Class A and Class B warning levels come from the indenture's required overcollateralization ratio when available."
+    }
+  },
+  "scenario_table": [
+    {
+      "scenario": "base",
+      "rho": 0.21,
+      "pooled_cohort_pd": null,
+      "calibration_mode": "scenario_explicit_rho",
+      "rho_source": "explicit_base",
+      "rho_multiplier": null,
+      "pd_multiplier": null,
+      "cpr_multiplier": null,
+      "lgd_addon": null,
+      "discount_rate": null
+    },
+    {
+      "scenario": "low",
+      "rho": 0.12,
+      "pooled_cohort_pd": null,
+      "calibration_mode": "scenario_explicit_rho",
+      "rho_source": "explicit",
+      "rho_multiplier": null,
+      "pd_multiplier": 1.0,
+      "cpr_multiplier": 1.0,
+      "lgd_addon": 0.0,
+      "discount_rate": 0.04
+    },
+    {
+      "scenario": "high",
+      "rho": 0.3,
+      "pooled_cohort_pd": null,
+      "calibration_mode": "scenario_explicit_rho",
+      "rho_source": "explicit",
+      "rho_multiplier": null,
+      "pd_multiplier": 1.0,
+      "cpr_multiplier": 1.0,
+      "lgd_addon": 0.0,
+      "discount_rate": 0.04
+    }
+  ]
+}
