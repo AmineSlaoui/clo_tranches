@@ -1,0 +1,52 @@
+deal_id,as_of_date,object_type,object_id,metric,value,unit,bloomberg_function,bloomberg_field,notes
+ARES_2023_68A,,collateral,ARES_2023_68A,collateral_par,492060794.12,USD,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,
+ARES_2023_68A,,collateral,ARES_2023_68A,loan_count,415,count,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,
+ARES_2023_68A,,collateral,ARES_2023_68A,weighted_avg_price_priced_only,95.0737,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,409/415 priced; excludes 6 unpriced rows
+ARES_2023_68A,,collateral,ARES_2023_68A,weighted_avg_spread_floating,3.0106,percent,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,matches TRIG WAS 3% to rounding
+ARES_2023_68A,,collateral,ARES_2023_68A,weighted_avg_maturity_provisional,4.5782,years,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,uses PROVISIONAL as-of 2026-05-31
+ARES_2023_68A,,collateral,ARES_2023_68A,fixed_rate_share,2.7,percent,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,TRIG panel shows 2.7%
+ARES_2023_68A,,collateral,ARES_2023_68A,non_us_share,3.9,percent,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,TRIG panel shows 3.9%
+ARES_2023_68A,,collateral,ARES_2023_68A,weighted_avg_sp_recovery,38.73,percent,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,TRIG panel shows 38.74% (WARR test vs 37.25 covenant)
+ARES_2023_68A,,collateral,ARES_2023_68A,defaulted_share,0.55,percent,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,single defaulted obligor (LABL)
+ARES_2023_68A,,deal,ARES_2023_68A,diversity_score,79,score,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,
+ARES_2023_68A,,deal,ARES_2023_68A,warf,2761,factor,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,
+ARES_2023_68A,,deal,ARES_2023_68A,sp_ccc_bucket,6.9,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,tape-computed CCC+/below = 7.56%; delta is definitional (defaulted exclusion etc.)
+ARES_2023_68A,,deal,ARES_2023_68A,wal_vs_covenant,4.54 vs 8.25,years,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,"WAL test, starts 08/2029"
+ARES_2023_68A,,tranche,Class AB,oc_ratio,131.25,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 121.6
+ARES_2023_68A,,tranche,Class AB,ic_ratio,150.11,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 120.0
+ARES_2023_68A,,tranche,Class C,oc_ratio,121.65,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 114.0
+ARES_2023_68A,,tranche,Class C,ic_ratio,137.98,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 115.0
+ARES_2023_68A,,tranche,Class D,oc_ratio,112.08,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 106.4
+ARES_2023_68A,,tranche,Class D,ic_ratio,123.64,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 110.0
+ARES_2023_68A,,tranche,Class E,oc_ratio,108.42,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 104.2
+ARES_2023_68A,,tranche,Class E,ic_ratio,116.39,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 105.0
+ARES_2023_68A,,deal,ARES_2023_68A,interest_diversion_ratio,108.42,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 104.70
+ARES_2023_68A,,deal,ARES_2023_68A,eod_oc_ratio,162.86,percent,Bloomberg TRIG panel export (ARES_2023_68A_BR_TRIG),,trigger 102.50
+ARES_2023_68A,,collateral,rating_cohort_A,cohort_wa_price,93.7966,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_A+,cohort_wa_price,88.814,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_A-,cohort_wa_price,92.3904,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_AA-,cohort_wa_price,89.401,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_B,cohort_wa_price,98.3367,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_B+,cohort_wa_price,98.3182,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_B-,cohort_wa_price,95.6592,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_BB,cohort_wa_price,99.8082,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_BB+,cohort_wa_price,100.0165,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_BB-,cohort_wa_price,99.9176,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_BBB,cohort_wa_price,100.5814,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_BBB+,cohort_wa_price,96.4376,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_BBB-,cohort_wa_price,99.856,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_CCC,cohort_wa_price,65.3572,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_CCC+,cohort_wa_price,63.4061,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,,collateral,rating_cohort_CCC-,cohort_wa_price,37.9212,price,derived from lld_ares_2023.xlsx (Bloomberg collateral export),,"par-weighted, priced non-defaulted rows; proxy source for unpriced loans"
+ARES_2023_68A,2026-06-18,tranche,A1R,current_balance,307500000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 4.977%; reported %Sub 38.6%
+ARES_2023_68A,2026-06-18,tranche,A2R,current_balance,20000000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 5.267%; reported %Sub 34.6%
+ARES_2023_68A,2026-06-18,tranche,BR,current_balance,52500000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 5.367%; reported %Sub 24.1%
+ARES_2023_68A,2026-06-18,tranche,CR,current_balance,30000000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 5.617%; reported %Sub 18.1%
+ARES_2023_68A,2026-06-18,tranche,D1R,current_balance,27500000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 6.667%; reported %Sub 12.6%
+ARES_2023_68A,2026-06-18,tranche,D2R,current_balance,7500000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 7.817%; reported %Sub 11.1%
+ARES_2023_68A,2026-06-18,tranche,ER,current_balance,15000000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 9.667%; reported %Sub 8.1%
+ARES_2023_68A,2026-06-18,tranche,F,current_balance,500000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 13.747%; reported %Sub 8.0%
+ARES_2023_68A,2026-06-18,tranche,SUB,current_balance,35900000.0,USD,market_value_overview_ares_2023.xlsx,,all-in cpn 0.0%; reported %Sub 0.0%
+ARES_2023_68A,2026-06-18,tranche,BR,syt_price,94.81,price,SYT export 20260618 (settle 2026-06-22),,collect remaining classes' SYT prices for the full tranche-mark set
+ARES_2023_68A,2026-05-25,deal,ARES_2023_68A,tsfr3m_start,3.65621,percent,CFT Index Rates sheet,TSFR3M,Bloomberg projection curve start; mimic-mode reference_rate
+ARES_2023_68A,2026-05-25,deal,ARES_2023_68A,cft_opening_total_balance,500807340.42,USD,CFT Collateral sheet,,= CLP 05/2026 Total Bal (collateral par + principal acct) — ties to the cent

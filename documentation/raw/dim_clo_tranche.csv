@@ -1,0 +1,10 @@
+deal_id,tranche,attach,detach,trigger_level,coupon_bps,cusip,figi,manager_name,source_family
+ARES_2023_68A,A1R,0.383896,1.008818,0.060929,132.1,,,Ares CLO Management LLC,bloomberg_clo
+ARES_2023_68A,A2R,0.34325,0.383896,0.060929,161.1,,,Ares CLO Management LLC,bloomberg_clo
+ARES_2023_68A,BR,0.236556,0.34325,0.060929,171.1,,,Ares CLO Management LLC,bloomberg_clo
+ARES_2023_68A,CR,0.175588,0.236556,0.050117,196.1,,,Ares CLO Management LLC,bloomberg_clo
+ARES_2023_68A,D1R,0.119701,0.175588,0.037761,301.1,,,Ares CLO Management LLC,bloomberg_clo
+ARES_2023_68A,D2R,0.104459,0.119701,0.037761,416.1,,,Ares CLO Management LLC,bloomberg_clo
+ARES_2023_68A,ER,0.073975,0.104459,0.025893,601.1,,,Ares CLO Management LLC,bloomberg_clo
+ARES_2023_68A,F,0.072958,0.073975,0.021219,1009.1,,,Ares CLO Management LLC,bloomberg_clo
+ARES_2023_68A,SUB,0.0,0.072958,0.021219,0.0,,,Ares CLO Management LLC,bloomberg_clo

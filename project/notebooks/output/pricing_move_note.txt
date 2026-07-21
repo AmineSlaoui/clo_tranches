@@ -1,0 +1,4 @@
+Portfolio WA price (cohort fills): 94.884
+Portfolio WA price (naive flat fills): 95.078
+Move from using rating-cohort marks: -0.194 pts (-0.20%)
+Driver: 2 CCC+ names (BW Holding, Pretium PKG) marked at the CCC+ cohort ~63.4 instead of the flat ~95.4 (~32 pts richer if flat-marked).

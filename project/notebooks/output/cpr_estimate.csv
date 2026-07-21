@@ -1,0 +1,2 @@
+period,beginning_balance,scheduled,unscheduled,periodic_rate,CPR_est_%_monthly_basis,CPR_est_%_quarterly_basis,unscheduled_source,scheduled_assumption,note
+2026-04-17 -> 2026-05-05,488841000.0,0.0,3908086.0,0.00799,9.18,3.16,Facility - Paydown (proxy),assumed 0 (near-bullet TLBs),"ESTIMATE, n=1 single collection period — not a measured quarterly CPR"

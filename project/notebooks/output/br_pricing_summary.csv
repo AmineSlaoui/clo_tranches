@@ -1,0 +1,3 @@
+method,price,note
+M1 loss-view (base),99.11,"EL=1.19%, disc=issue spread"
+M2 DM=300bps,94.06,"promised CFs, DM 300bps"

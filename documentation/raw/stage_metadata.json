@@ -1,0 +1,13 @@
+{
+  "deal_id": "ARES_2023_68A",
+  "generated_by": "make_data_readiness_package.py",
+  "generated_on": "2026-07-03",
+  "as_of_date": "PENDING determination-date entry \u2014 tape period pinned to CLP 05/2026 (balance/count/default/WAM tie exactly)",
+  "as_of_date_provisional": "2026-05-31",
+  "bloomberg_pull_date": "2026-06-18",
+  "syt_settle_date": "2026-06-22",
+  "deal_payment_day": 25,
+  "tsfr3m_at_2026_05_25": 3.65621,
+  "rho_mode": "explicit (no cohort panel; CLP 35-month deal-level history exists but fails sufficiency test)",
+  "handling": "LOCAL ONLY. Derived from licensed Bloomberg exports; do not commit to public repo."
+}

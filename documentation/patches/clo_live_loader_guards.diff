@@ -1,0 +1,56 @@
+--- dist/L3_4_1_Correlation_and_Tail_Risk_in_CLO_Tranches_distribution/project/python/CLO.py	2026-07-03 04:52:33.091117207 +0000
++++ patchwork/CLO.py	2026-07-03 06:52:13.447823426 +0000
+@@ -1130,6 +1130,21 @@
+     frame = frame.merge(latest_trigger, on="tranche", how="left")
+     frame["trigger_level"] = frame["trigger_level"].fillna(frame["latest_oc_trigger_level"])
+ 
++    suspicious = frame["trigger_level"] >= 1.0
++    if suspicious.any():
++        offenders = ", ".join(
++            f"{row.tranche}={row.trigger_level:.4g}"
++            for row in frame.loc[suspicious, ["tranche", "trigger_level"]].itertuples(index=False)
++        )
++        raise ContractError(
++            "Live tranche trigger_level values look like OC ratios (>= 1.0): "
++            + offenders
++            + ". The engine compares trigger_level against CUMULATIVE COLLATERAL LOSS as a "
++            "fraction of par, so OC-style ratios can never fire. Convert before staging: "
++            "loss_threshold = 1 - T * D_group / P0 (T = OC trigger ratio, D_group = liabilities "
++            "senior-through-test-group, P0 = collateral par)."
++        )
++
+     if frame[["attach", "detach", "trigger_level"]].isna().any().any():
+         raise ContractError(
+             "The live tranche contract needs numeric attach, detach, and trigger_level values. "
+@@ -1252,10 +1267,27 @@
+     if "source_family" not in pool.columns:
+         pool["source_family"] = "unlabeled_live_local_contract"
+     pool["source_family"] = pool["source_family"].fillna("unlabeled_live_local_contract").astype(str)
+-    pool["coupon_spread_bps"] = pool["coupon_spread_bps"].fillna(500.0)
+-    pool["reference_rate"] = pool["reference_rate"].fillna(DEFAULT_REFERENCE_RATE)
+-    pool["coupon_floor"] = pool["coupon_floor"].fillna(0.01)
+-    pool["maturity_years"] = pool["maturity_years"].fillna(max(3.0, DEFAULT_HORIZON_YEARS))
++    _live_fill_defaults = (
++        ("coupon_spread_bps", 500.0),
++        ("reference_rate", DEFAULT_REFERENCE_RATE),
++        ("coupon_floor", 0.01),
++        ("maturity_years", max(3.0, DEFAULT_HORIZON_YEARS)),
++    )
++    for _column, _default in _live_fill_defaults:
++        _missing = int(pool[_column].isna().sum())
++        if _missing:
++            print(
++                f"WARNING: live contract '{_column}' is blank on {_missing} rows; "
++                f"filling with default {_default}. Confirm this fallback is intended "
++                "and record it in field_dictionary.csv."
++            )
++        pool[_column] = pool[_column].fillna(_default)
++    _missing_dm = int(pool["discount_margin_bps"].isna().sum())
++    if _missing_dm:
++        print(
++            f"WARNING: live contract 'discount_margin_bps' is blank on {_missing_dm} rows; "
++            "filling with coupon_spread_bps + 75 bps. Confirm and record in field_dictionary.csv."
++        )
+     pool["discount_margin_bps"] = pool["discount_margin_bps"].fillna(pool["coupon_spread_bps"] + 75.0)
+ 
+     weight = pool["current_balance"] / pool["current_balance"].sum()
